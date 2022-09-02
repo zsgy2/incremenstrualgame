@@ -898,9 +898,9 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   }
      
      const xvalues=[]
-     //for (var i = 1; i <= 100; i++) {
-   //xvalues.push(i);
-//}
+     for (var i = 1; i <= 100; i++) {
+   xvalues.push(i);
+}
      const lhvalues=[]
      const fshvalues=[]
      const estrogenvalues=[]
@@ -944,7 +944,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
           linechart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
           linechart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
           tx+=1;
-         linechart.update();
+         linechart.update('none');
      }}
      
      
