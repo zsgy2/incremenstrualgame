@@ -55,7 +55,7 @@
     </div>
     
     
-    <canvas id="graph" style="width:100%;max-width:500px"></canvas>
+    <canvas id="chart" style="width:100%;max-width:500px"></canvas>
     
     
     
@@ -908,7 +908,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      var tx=0
     
      
-     var graph = new Chart("graph", {
+     var graph = new Chart("chart", {
   type: "line",
   data: {
     labels: xvalues,
@@ -936,16 +936,14 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      
       setInterval(addvalues, 1000);
      
-     function addvalues(graph) {
+     function addvalues(chart,label,data) {
         if (lhunlock==true) {
-     lhvalues.push(lhlvl2);
-     fshvalues.push(fshlvl);
-     estrogenvalues.push(estlvl);
-     progesteronevalues.push(proglvl);
+          chart.data.labels[tx]=tx+1;
+           chart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
+          chart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
+          chart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
+          chart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
           tx+=1;
-        if (tx>100) {
-         xvalues.push(tx); 
-        }
          graph.update();
      }}
      
