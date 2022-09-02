@@ -1,0 +1,882 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The menstrual cycle: An educational incremental game</title>
+</head>
+
+  <body>
+  <div id="container">
+  <div id="hormones">
+  <h2>
+  Hormones
+  </h2>
+  <h4>
+  GnRH <br> <i>(Produced by hypothalamus)</i>
+  </h4>
+    <p id="gnrh">
+    </p>
+  <h4>
+  LH <br> <i>(Produced by anterior pituitary)</i>
+  </h4>
+   <p id="lh">
+   Unlocks at 4e+4 GnRH units
+    </p>
+     <h4>
+  FSH <br> <i>(Produced by anterior pituitary)</i>
+  </h4>
+   <p id="fsh">
+   Unlocks at 4e+4 GnRH units
+    </p>
+    <h4>
+    Androgens <br> <i>(To be converted to estrogen)</i>
+  </h4>
+   <p id="androgen">
+   Produced by thecal cells
+    </p>
+     <h4>
+  Estrogen <br> <i>(Stimulates its own production)</i>
+  </h4>
+   <p id="estrogen">
+   Produced by granulosa cells
+    </p>
+     <h4>
+  Inhibin <br> <i>(Increases androgen and oestrogen production, but inhibits FSH production)</i>
+  </h4>
+   <p id="inhibin">
+   Produced by granulosa cells
+    </p>
+     <h4>
+  Progesterone <br> <i>(Depresses LH and FSH through negative feedback and inhibiting positive feedback effect of estrogen)</i>
+  </h4>
+   <p id="progesterone">
+   Produced by granulosa cells<br>Unlocks at 1.00e+10 LH units
+    </p>
+    </div>
+    
+    <div id="upgrades">
+ <h2>
+ Upgrades
+ </h2>   
+ <h4>
+ Double the speed of GnRH production
+ </h4>
+  <p id="up1cost">
+  Cost: 400 GnRH units
+    </p>
+   <button id="butup1" onclick="buyup1()">Buy</button>
+   
+   <h4>
+ Triple the speed of GnRH production
+ </h4>
+  <p id="up2cost">
+  Cost: 1.00e+5 GnRH units
+    </p>
+   <button id="butup2" onclick="buyup2()">Buy</button>
+   
+   <h4>
+ Antral follicle formation <br> <i>Thecal cells respond to LH, granulosa cells respond to FSH</i>
+ </h4>
+  <p id="up3cost">
+  Cost: 2.00e+6 LH units and 2.00e+6 FSH units
+    </p>
+   <button id="butup3" onclick="buyup3()">Buy</button>
+   
+    <h4>
+ Unlock slider to control activation ratio of granulosa and thecal cells
+ </h4>
+  <p id="up4cost">
+  Cost: 1.00e+6 estrogen units
+    </p>
+   <button id="butup4" onclick="buyup4()">Buy</button>
+   
+   <h4>
+ Buying upgrades no longer spends resources
+ </h4>
+  <p id="up4halfcost">
+  Cost: 3.00e+6 estrogen units
+    </p>
+   <button id="butup4half" onclick="buyup4half()">Buy</button>
+   
+   <h4>
+ Thecal layer becomes hyperaemic <br> <i>Quadruple the speed of androgen production</i>
+ </h4>
+  <p id="up5cost">
+  Cost: 5.00e+6 LH units
+    </p>
+   <button id="butup5" onclick="buyup5()">Buy</button>
+   
+    <h4>
+ Estrogen uses a better formula to stimulate its own production
+ </h4>
+  <p id="up5halfcost">
+  Cost: 1.00e+7 estrogen units
+    </p>
+   <button id="butup5half" onclick="buyup5half()">Buy</button>
+   
+    <h4>
+ Estrogen exerts positive feedback effects on GnRH, LH and FSH instead
+ </h4>
+  <p id="up6cost">
+  Cost: 1.00e+9 GnRH units, 5.00e+7 LH units, 4.00e+5 FSH units, and 2.00e+8 estrogen units
+    </p>
+   <button id="butup6" onclick="buyup6()">Buy</button>
+   
+    <h4>
+ Induce ovulation
+ </h4>
+  <p id="up7cost">
+  Cost: 1.00e+13 LH units <i>(LH surge required)</i>
+    </p>
+   <button id="butup7" onclick="buyup7()">Buy</button>
+   
+    <h4>
+    Corpus luteum matures<br><i>Boost progesterone, androgen and estrogen production</i>
+ </h4>
+  <p id="up8cost">
+  Cost: 3.00e+6 progesterone units
+    </p>
+   <button id="butup8" onclick="buyup8()">Buy</button>
+   
+    <h4>
+ Undergo menstruation<br><i>Complete menstrual cycle<br>This will reset your progress, but you will gain additional perks</i>
+ </h4>
+  <p id="up9cost">
+  Requirement: &#60;1000 progesterone units
+    </p>
+   <button id="butup9" onclick="buyup9()">Buy</button>
+   </div>
+   </div>
+   <div style="clear: both;">
+   </div>
+   
+     <br>
+     
+  <div id="slidecontainer">
+  <h2>
+  Activation ratio of granulosa cells to thecal cells
+  </h2>
+  <p style= "display: inline">
+  Thecal cells
+  </p>
+  <input type="range" min="0" max="100" value="30" class="slider" id="slider">
+  <p style= "display: inline">
+  Granulosa cells
+  </p>
+  <p id="sliderno">
+  70% thecal cells, 30% granulosa cells
+  </p>
+</div>
+     
+     <br>
+     
+  <div id="cycles">
+   <h2>
+  Cycles 
+  </h2>
+  <h4>
+  Cycles completed:
+  </h4>
+    <p id="cyclesno">
+    0
+    </p>
+    <h4>
+  Cycle points left:
+  </h4>
+    <p id="cyclepoints">
+    0
+    </p>
+    <div id="cycleupgrades">
+    
+    <h4>
+ Triple the speed of GnRH production
+ </h4>
+  <p id="c1cost">
+  Cost: 1 cycle point
+    </p>
+   <button id="butc1" onclick="buyc1()">Buy</button>
+   
+<h4>
+ Autobuy upgrades (excludes cycle upgrades)
+ </h4>
+  <p id="c2cost">
+  Cost: 2 cycle points
+    </p>
+   <button id="butc2" onclick="buyc2()">Buy</button>
+   
+   <h4>
+ Estrogen exerts less negative feedback on GnRH, LH and FSH
+ </h4>
+  <p id="c3cost">
+  Cost: 1 cycle point
+    </p>
+   <button id="butc3" onclick="buyc3()">Buy</button>
+   
+   <h4>
+   Progesterone falls much faster after luteolysis
+ </h4>
+  <p id="c4cost">
+  Cost: 1 cycle point
+    </p>
+   <button id="butc4" onclick="buyc4()">Buy</button>
+   
+    <h4>
+   "Corpus luteum matures" upgrade cost is divided by 5
+ </h4>
+  <p id="c5cost">
+  Cost: 1 cycle point
+    </p>
+   <button id="butc5" onclick="buyc5()">Buy</button>
+    </div>
+    </div>
+    
+ 
+    
+     <button onclick="redirect()">
+     How to play
+     </button>
+     
+   <script>
+   var time = 0
+var gnrhlvl=0
+var estlvl=0
+var lhlvl=0
+var lhlvl2=0
+var fshlvl=0
+var fshlvl0=0
+var andlvl=0
+var inhibinlvl=0
+var proglvl=0
+var up1=2
+var up2=0
+var up3=false
+var spend=true
+var up5=0
+var up6=false
+var up8=0
+var up1cost=400
+var up2cost = 10**5
+var up3cost = 2*10**6
+var up4cost = 10**6
+var up4halfcost=3*10**6
+var up5cost = 5*10**6
+var up5halfcost=10**7
+var up6cost=10**9
+var up7cost=10**13
+var up8cost=3*10**6
+var up9cost=1000
+var lhunlock = false
+var fshunlock = false
+var progunlock=false
+var estincrement=0
+var andincrement=0
+var estimprove = false
+var ovulation = false
+var lhlimit=false
+var cycles=0
+var cyclepoints=0
+var c1cost=1
+var c1=0
+var autobuy=false
+var c3=false
+var c4=0
+var c5=0
+
+//initial slider condition
+document.getElementById("slidecontainer").style.visibility= "hidden";
+
+
+  setInterval(addtime,10);
+  function addtime() {
+  time+=1;
+  addgnrh();
+  if (up3 == true) {
+  addest();
+  }
+  if (lhunlock==true) {
+  addlh();
+  }
+  if (fshunlock==true) {
+  addfsh();
+  }
+  if (up3==true) {
+  addandrogen(); 
+  }
+  if (up3==true) {
+  addinhibin();
+  }
+  if (progunlock==true) {
+  addprogesterone();
+  }
+  checkbuybuttons();
+  checkunlocks();
+  if (autobuy==true) {
+  autobuyupgrades();
+  }
+  }
+  
+  function addgnrh() {
+  if (up6==false || ovulation==true) {
+  if (c3==true) {
+   gnrhlvl=gnrhlvl+Math.floor((2**up1)*(3**up2)/[Math.log10(Math.cbrt(estlvl)+10)*(proglvl+1)]);
+  } else {
+  gnrhlvl=gnrhlvl+Math.floor((2**up1)*(3**up2)/[Math.log10(estlvl+10)*(proglvl+1)]);
+  }} else {
+  gnrhlvl=gnrhlvl+Math.floor((2**up1)*(3**up2)*Math.log10(estlvl+10));
+  }
+  if (ovulation==true) {
+  gnrhlvl-=gnrhlvl/100
+  }
+  if (gnrhlvl>10000) {
+  document.getElementById("gnrh").innerHTML=gnrhlvl.toExponential(2) + " units"
+} else {
+  document.getElementById("gnrh").innerHTML=gnrhlvl + " units"
+  }
+  }
+  
+  function addest() {
+  if (andlvl<=0) {
+  estlvl+= Math.floor((5**up8)*(4**up5)*[Math.sqrt(lhlvl)*Math.cbrt(Math.log10(inhibinlvl+10))]*(100-slider.value)/100)
+  } else {
+  if (lhlimit==true) {
+  estlvl+=Math.floor(estincrement*lhlvl2/10**8)
+  } else {
+  estlvl=estlvl+Math.floor(estincrement)
+  }}
+  if (estimprove==false) {
+  estincrement = (10**up8)*[Math.sqrt(fshlvl)*Math.cbrt(Math.log10(estlvl+10))*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
+  } else {
+  estincrement = (10**up8)*[Math.sqrt(fshlvl)*(Math.log10(estlvl+10)**2)*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
+  }
+   if (ovulation==true) {
+  estlvl-=Math.floor(estlvl/100)
+  }
+   if (estlvl>10000) {
+  document.getElementById("estrogen").innerHTML=estlvl.toExponential(2) + " units"
+} else {
+  document.getElementById("estrogen").innerHTML=estlvl + " units"
+  }
+  }
+  
+  function addandrogen() {
+  andincrement = Math.floor((5**up8)*(4**up5)*[Math.sqrt(lhlvl)*Math.cbrt(Math.log10(inhibinlvl+10))]*(100-slider.value)/100 - estincrement)
+  if (andincrement<0 && andlvl<=0) {
+  andlvl=0;
+  } else {
+  if (lhlimit==true) {
+  andlvl+=Math.floor(andincrement*lhlvl2/10**9);
+  } else {
+  if (ovulation==true) {
+   andlvl=Math.floor(andlvl+andincrement/10);
+  } else {
+  andlvl=andlvl+andincrement;
+  }}
+  }
+   if (ovulation==true) {
+  andlvl-=Math.floor(andlvl/100)
+  }
+  if (andlvl>10000) {
+  document.getElementById("androgen").innerHTML=andlvl.toExponential(2) + " units"
+} else {
+  document.getElementById("androgen").innerHTML=andlvl + " units"
+  }
+  }
+  
+   function addlh() {
+  if (up6==false || ovulation==true) {
+  if (c3==true) {
+  lhlvl=lhlvl+Math.floor(Math.sqrt(gnrhlvl)/Math.log10(Math.cbrt(estlvl)+10));
+  } else {
+  lhlvl=lhlvl+Math.floor(Math.sqrt(gnrhlvl)/Math.log10(estlvl+10));
+  }} else {
+   lhlvl=lhlvl+Math.floor(Math.sqrt(gnrhlvl)*Math.log10(estlvl+10));
+  }
+  if (lhlimit==true) {
+  lhlvl-=Math.floor(lhlvl/500)
+  }
+  if (ovulation==true) {
+  if (lhlimit==true && lhlvl2>Math.floor(lhlvl/(50*proglvl+1))) {
+  } else {
+  lhlvl2=Math.floor(lhlvl/(50*proglvl+1));
+  }} else {
+  lhlvl2=lhlvl;
+  }
+   if (lhlvl2>10000) {
+  document.getElementById("lh").innerHTML=lhlvl2.toExponential(2) + " units"
+} else {
+  document.getElementById("lh").innerHTML=lhlvl2 + " units"
+  }
+  }
+  
+   function addfsh() {
+  if (up6==false || ovulation==true) {
+  if (c3==true) {
+   fshlvl0=fshlvl0+Math.floor(Math.sqrt(gnrhlvl)/Math.log10(Math.cbrt(estlvl)+10));
+  } else {
+  fshlvl0=fshlvl0+Math.floor(Math.sqrt(gnrhlvl)/Math.log10(estlvl+10));
+  }} else {
+  fshlvl0=fshlvl0+Math.floor(Math.sqrt(gnrhlvl)*Math.log10(estlvl+10));
+  }
+   if (lhlimit==true) {
+  fshlvl0-=Math.floor(fshlvl0/500)
+  }
+  if (ovulation==true) {
+  if (lhlimit==true && fshlvl>Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl/100+10)))) {
+  } else {
+  fshlvl=Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl/100+10)));
+  }} else {
+  fshlvl=Math.floor(fshlvl0*5**(-1*Math.log10(inhibinlvl/1000+1)));
+  }
+   if (fshlvl>10000) {
+  document.getElementById("fsh").innerHTML=fshlvl.toExponential(2) + " units"
+} else {
+  document.getElementById("fsh").innerHTML=fshlvl + " units"
+  }
+  }
+  
+   function addinhibin() {
+  inhibinlvl=inhibinlvl+Math.floor(Math.cbrt(fshlvl)*slider.value/100)
+  if (ovulation==true) {
+  inhibinlvl-=Math.floor(inhibinlvl/500)
+  }
+   if (inhibinlvl>10000) {
+  document.getElementById("inhibin").innerHTML=inhibinlvl.toExponential(2) + " units"
+} else {
+  document.getElementById("inhibin").innerHTML=inhibinlvl + " units"
+  }
+  }
+  
+   function addprogesterone() {
+  if (ovulation==false) {
+  proglvl+=Math.floor(Math.log10(fshlvl+10)*slider.value/100);
+  } else {
+  if (lhlimit==true) {
+  proglvl+=(30**c4);
+  proglvl-=Math.floor((30**c4)*proglvl/300)
+  } else {
+  proglvl+=3000*(5**up8)
+  }}
+   if (proglvl>10000) {
+  if (lhlimit==true) {
+  document.getElementById("progesterone").innerHTML=proglvl.toExponential(2) + " units <br>" + "Warning: low LH levels causing luteolysis and reducing progesterone, androgen and estrogen production";
+  } else {
+  document.getElementById("progesterone").innerHTML=proglvl.toExponential(2) + " units"
+  }
+} else {
+if (lhlimit==true) {
+  document.getElementById("progesterone").innerHTML=proglvl + " units <br>" + "Warning: low LH levels causing luteolysis and reducing progesterone, androgen and estrogen production";
+  } else {
+  document.getElementById("progesterone").innerHTML=proglvl + " units"
+  }}
+  }
+  
+  
+  //slider
+var slider = document.getElementById("slider");
+var output = document.getElementById("sliderno");
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = (100-this.value)+"% thecal cells, "+slider.value+"% granulosa cells";
+}
+  
+  
+  //upgrades
+  function buyup1() {
+  up1=up1+1;
+  if (spend==true) {
+  gnrhlvl=gnrhlvl-up1cost
+  }
+  up1cost=up1cost*3;
+  if (up1cost>10000) {
+  if (up1==10) {
+  document.getElementById("up1cost").innerHTML = "Cost: "+up1cost.toExponential(2)+" GnRH units and 1 estrogen unit";
+  } else {
+  document.getElementById("up1cost").innerHTML = "Cost: "+up1cost.toExponential(2)+" GnRH units";
+  }} else {
+  document.getElementById("up1cost").innerHTML = "Cost: "+up1cost+" GnRH units";
+  }
+  if (up1>31) {
+  document.getElementById("up1cost").innerHTML = "Maximum upgrades bought!";
+   document.getElementById("butup1").disabled = true
+  }
+  }
+  
+  function buyup2() {
+  up2=up2+1;
+  if (spend==true) {
+  gnrhlvl=gnrhlvl-up2cost
+  }
+  up2cost=up2cost*20;
+  document.getElementById("up2cost").innerHTML = "Cost: "+up2cost.toExponential(2)+" GnRH units";
+   if (up2>9) {
+  document.getElementById("up2cost").innerHTML = "Maximum upgrades bought!";
+   document.getElementById("butup2").disabled = true
+  }
+  }
+  
+  function buyup3() {
+  up3=true;
+  if (spend==true) {
+  lhlvl=lhlvl-up3cost;
+  fshlvl0=fshlvl0-up3cost;
+  }
+  document.getElementById("up3cost").innerHTML = "Bought!";
+   document.getElementById("butup3").disabled = true
+  }
+  
+  function buyup4() {
+  document.getElementById("slidecontainer").style.visibility="visible";
+  if (spend==true) {
+  estlvl=estlvl-up4cost;
+  }
+  document.getElementById("up4cost").innerHTML = "Bought!";
+   document.getElementById("butup4").disabled = true
+  }
+  
+   function buyup4half() {
+  spend=false;
+  //estlvl=estlvl-up4halfcost;
+  document.getElementById("up4halfcost").innerHTML = "Bought!";
+   document.getElementById("butup4half").disabled = true
+  }
+  
+  function buyup5() {
+  up5=up5+1;
+  if (spend==true) {
+  lhlvl=lhlvl-up5cost;
+  }
+  up5cost=up5cost*3
+  if (up5==2) {
+   document.getElementById("up5cost").innerHTML = "Bought! (Limit of 2 purchases)";
+   document.getElementById("butup5").disabled = true;
+  } else {
+  document.getElementById("up5cost").innerHTML = "Cost: "+up5cost.toExponential(2)+" LH units";
+  }
+  }
+  
+  function buyup5half() {
+  estimprove=true;
+  if (spend==true) {
+  estlvl=estlvl-up5halfcost;
+  }
+  document.getElementById("up5halfcost").innerHTML = "Bought!";
+   document.getElementById("butup5half").disabled = true
+  }
+  
+   function buyup6() {
+  up6=true;
+  if (spend==true) {
+  gnrhlvl-=10**9;
+  lhlvl-=5*10**7;
+  if (fshlvl0>Math.floor((4*10**5)/[5**(-1*Math.log10(inhibinlvl/1000+1))])) {
+  fshlvl0-=Math.floor((4*10**5)/[5**(-1*Math.log10(inhibinlvl/1000+1))]);
+  } else {
+  fshlvl0=0
+  }
+  estlvl-=2*10**8;
+  }
+   document.getElementById("up6cost").innerHTML = "Bought!";
+   document.getElementById("butup6").disabled = true
+  }
+  
+  function buyup7() {
+  ovulation=true;
+  slider.value=50;
+  document.getElementById("slidecontainer").style.visibility="hidden";
+  if (spend==true) {
+  lhlvl=lhlvl-up7cost;
+  }
+  document.getElementById("up7cost").innerHTML = "Bought!";
+   document.getElementById("butup7").disabled = true
+  }
+  
+   function buyup8() {
+  up8+=1
+  up8cost=up8cost*5
+  if (spend==true) {
+  proglvl=proglvl-up8cost;
+  }
+   if (up8==3) {
+   document.getElementById("up8cost").innerHTML = "Bought! (Limit of 3 purchases)";
+   document.getElementById("butup8").disabled = true;
+  } else {
+   document.getElementById("up8cost").innerHTML = "Cost: "+up8cost.toExponential(2)+" progesterone units";
+  }}
+  
+  function buyup9() {
+  cycles+=1;
+  cyclepoints+=1;
+   document.getElementById("cyclesno").innerHTML = cycles
+   document.getElementById("cyclepoints").innerHTML = cyclepoints
+  gnrhlvl=0
+estlvl=0
+lhlvl=0
+lhlvl2=0
+fshlvl=0
+fshlvl0=0
+andlvl=0
+inhibinlvl=0
+proglvl=0
+up1=2
+up2=c1
+up3=false
+spend=true
+up5=0
+up6=false
+up8=0
+up1cost=400
+up2cost = 10**5
+up3cost = 2*10**6
+up4cost = 10**6
+up4halfcost=3*10**6
+up5cost = 5*10**6
+up5halfcost=10**7
+up6cost=10**9
+up7cost=10**13
+up8cost=(3*10**6)/(5*c5)
+lhunlock = false
+fshunlock = false
+progunlock=false
+estincrement=0
+andincrement=0
+estimprove = false
+ovulation = false
+lhlimit=false
+slider.value=30
+resettext()
+}
+
+function resettext() {
+document.getElementById("lh").innerHTML ="Unlocks at 4e+4 GnRH units"
+document.getElementById("fsh").innerHTML ="Unlocks at 4e+4 GnRH units"
+document.getElementById("androgen").innerHTML ="Produced by thecal cells"
+document.getElementById("estrogen").innerHTML ="Produced by granulosa cells"
+document.getElementById("inhibin").innerHTML ="Produced by granulosa cells"
+document.getElementById("progesterone").innerHTML ="Produced by granulosa cells <br>Unlocks at 1.00e+10 LH units"
+document.getElementById("up1cost").innerHTML ="Cost: 400 GnRH units"
+document.getElementById("up2cost").innerHTML ="Cost: 1.00e+5 GnRH units"
+document.getElementById("up3cost").innerHTML = "Cost: 2.00e+6 LH units and 2.00e+6 FSH units"
+document.getElementById("up4cost").innerHTML ="Cost: 1.00e+6 estrogen units"
+document.getElementById("up4halfcost").innerHTML ="Cost: 3.00e+6 estrogen units"
+document.getElementById("up5cost").innerHTML ="Cost: 5.00e+6 LH units"
+document.getElementById("up5halfcost").innerHTML ="Cost: 1.00e+7 estrogen units"
+document.getElementById("up6cost").innerHTML ="Cost: 1.00e+9 GnRH units, 5.00e+7 LH units, 4.00e+5 FSH units, and 2.00e+8 estrogen units"
+document.getElementById("up7cost").innerHTML ="Cost: 1.00e+13 LH units <i>(LH surge required)</i>"
+if (c5>0) {
+document.getElementById("up8cost").innerHTML ="Cost: 6.00e+5 progesterone units"
+} else {
+document.getElementById("up8cost").innerHTML ="Cost: 3.00e+6 progesterone units"
+}
+document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa cells"
+}
+  
+  //cycle upgrades
+   function buyc1() {
+  c1+=1
+  up2+=1
+  cyclepoints-=c1cost;
+  c1cost=c1cost*3
+  document.getElementById("cyclepoints").innerHTML =cyclepoints
+  if (c1>1) {
+  document.getElementById("c1cost").innerHTML = "Bought! (Limit of 2 purchases)"
+  } else {
+   document.getElementById("c1cost").innerHTML = "Cost: "+c1cost+" cycle points";
+  }}
+  
+   function buyc2() {
+  autobuy=true
+  cyclepoints-=2;
+  document.getElementById("cyclepoints").innerHTML =cyclepoints
+  document.getElementById("c2cost").innerHTML = "Bought!"
+   document.getElementById("butc2").disabled = true
+  }
+  
+   function buyc3() {
+  c3=true
+  cyclepoints-=1;
+  document.getElementById("cyclepoints").innerHTML =cyclepoints
+  document.getElementById("c3cost").innerHTML = "Bought!"
+   document.getElementById("butc3").disabled = true
+  }
+  
+  function buyc4() {
+  c4+=1
+  cyclepoints-=1;
+  document.getElementById("cyclepoints").innerHTML =cyclepoints
+  document.getElementById("c4cost").innerHTML = "Bought!"
+   document.getElementById("butc4").disabled = true
+  }
+  
+   function buyc5() {
+  c5+=1
+  up8cost=up8cost/5
+   document.getElementById("up8cost").innerHTML = "Cost: "+up8cost.toExponential(2)+" progesterone units";
+  cyclepoints-=1;
+  document.getElementById("cyclepoints").innerHTML =cyclepoints
+  document.getElementById("c5cost").innerHTML = "Bought!"
+   document.getElementById("butc5").disabled = true
+  }
+  
+  //checking
+  function checkbuybuttons() {
+  if (gnrhlvl<up1cost || up1>31) {
+  document.getElementById("butup1").disabled = true
+ } else {
+ if (up1==10 && up3==false) {
+ document.getElementById("butup1").disabled = true
+ } else {
+  document.getElementById("butup1").disabled = false
+  }}
+  if (gnrhlvl<up2cost || up2>9) {
+  document.getElementById("butup2").disabled = true
+ } else {
+  document.getElementById("butup2").disabled = false
+  }
+   if (fshlvl<up3cost || lhlvl<up3cost || up3==true) {
+  document.getElementById("butup3").disabled = true
+ } else {
+  document.getElementById("butup3").disabled = false
+  }
+   if (estlvl<up4cost || document.getElementById("slidecontainer").style.visibility=="visible" || ovulation==true) {
+  document.getElementById("butup4").disabled = true
+ } else {
+  document.getElementById("butup4").disabled = false
+  }
+   if (estlvl<up4halfcost || spend==false) {
+  document.getElementById("butup4half").disabled = true
+ } else {
+  document.getElementById("butup4half").disabled = false
+  }
+   if (lhlvl<up5cost || up5==2) {
+  document.getElementById("butup5").disabled = true
+ } else {
+  document.getElementById("butup5").disabled = false
+  }
+  if (estlvl<up5halfcost || estimprove==true) {
+  document.getElementById("butup5half").disabled = true
+ } else {
+  document.getElementById("butup5half").disabled = false
+  }
+   if (gnrhlvl<10**9 || lhlvl<5*10**7 || fshlvl<4*10**5 || estlvl<2*10**8 || up6==true) {
+  document.getElementById("butup6").disabled = true
+ } else {
+  document.getElementById("butup6").disabled = false
+  }
+   if (lhlvl<up7cost || ovulation==true) {
+  document.getElementById("butup7").disabled = true
+ } else {
+  document.getElementById("butup7").disabled = false
+  }
+   if (proglvl<up8cost || up8==3) {
+  document.getElementById("butup8").disabled = true
+ } else {
+  document.getElementById("butup8").disabled = false
+  }
+   if (proglvl>up9cost || lhlimit==false) {
+  document.getElementById("butup9").disabled = true
+ } else {
+  document.getElementById("butup9").disabled = false
+  }
+   if (cyclepoints<c1cost || c1>1) {
+  document.getElementById("butc1").disabled = true
+ } else {
+  document.getElementById("butc1").disabled = false
+  }
+  if (cyclepoints<2 || autobuy==true) {
+  document.getElementById("butc2").disabled = true
+ } else {
+  document.getElementById("butc2").disabled = false
+  }
+   if (cyclepoints<1 || c3==true) {
+  document.getElementById("butc3").disabled = true
+ } else {
+  document.getElementById("butc3").disabled = false
+  }
+   if (cyclepoints<1 || c4>0) {
+  document.getElementById("butc4").disabled = true
+ } else {
+  document.getElementById("butc4").disabled = false
+  }
+  if (cyclepoints<1 || c5>0) {
+  document.getElementById("butc5").disabled = true
+ } else {
+  document.getElementById("butc5").disabled = false
+  }
+  }
+  
+  function checkunlocks() {
+  if (gnrhlvl>4*10**4) {
+  lhunlock=true;
+  fshunlock=true;
+  }
+  if (lhlvl>10**10) {
+  progunlock=true;
+  }
+  if (proglvl>10**8 && lhlvl2<10**4) {
+  lhlimit=true
+  }
+  }
+  
+  function autobuyupgrades() {
+  if (document.getElementById("butup1").disabled == false) {
+  buyup1()
+  }
+  if (document.getElementById("butup2").disabled == false) {
+  buyup2()
+  }
+  if (document.getElementById("butup3").disabled == false) {
+  buyup3()
+  }
+  if (document.getElementById("butup4").disabled == false) {
+  buyup4()
+  }
+  if (document.getElementById("butup4half").disabled == false) {
+  buyup4half()
+  }
+  if (document.getElementById("butup5").disabled == false) {
+  buyup5()
+  }
+  if (document.getElementById("butup5half").disabled == false) {
+  buyup5half()
+  }
+  if (document.getElementById("butup6").disabled == false) {
+  buyup6()
+  }
+  if (document.getElementById("butup7").disabled == false) {
+  buyup7()
+  }
+  if (document.getElementById("butup8").disabled == false) {
+  buyup8()
+  }
+  if (document.getElementById("butup9").disabled == false) {
+  buyup9()
+  }
+  }
+  
+  function redirect() {
+  window.open("https://weebly.com/")
+  }
+   </script>
+   <style>
+   #container {
+  width: 600px;
+}
+
+#hormones {
+  width: 300px;
+  float: left;
+}
+
+#upgrades {
+  width: 300px;
+  float: right;
+}
+
+#slider {
+  display: inline;
+}
+   </style>
+   
+  </body>
+</html>
