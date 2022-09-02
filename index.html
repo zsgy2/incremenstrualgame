@@ -898,9 +898,9 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   }
      
      const xvalues=[]
-     for (var i = 1; i <= 100; i++) {
-   xvalues.push(i);
-}
+     //for (var i = 1; i <= 100; i++) {
+   //xvalues.push(i);
+//}
      const lhvalues=[]
      const fshvalues=[]
      const estrogenvalues=[]
@@ -908,7 +908,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      var tx=0
     
      
-     var chart = new Chart("chart", {
+     var linechart = new Chart("chart", {
   type: "line",
   data: {
     labels: xvalues,
@@ -936,15 +936,15 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      
       setInterval(addvalues, 1000);
      
-     function addvalues(chart,label,data) {
+     function addvalues() {
         if (lhunlock==true) {
-          chart.data.labels[tx]=tx+1;
-           chart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
-          chart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
-          chart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
-          chart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
+          linechart.data.labels[tx]=tx+1;
+          linechart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
+          linechart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
+          linechart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
+          linechart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
           tx+=1;
-         chart.update();
+         linechart.update();
      }}
      
      
@@ -965,7 +965,6 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   width: 410px;
   float: right;
   display: table;
-  display: inline;
 }
 
 #slider {
