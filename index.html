@@ -55,7 +55,7 @@
     </div>
     
     
-    <canvas id="graph" style="width:100%;max-width:700px"></canvas>
+    <canvas id="graph" style="width:100%;max-width:500px"></canvas>
     
     
     
@@ -897,11 +897,16 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   }
   }
      
-     var xvalues=[1,2,3,4,5,6,7,8,9,10]
-     var lhvalues=[4,5,6]
-     var fshvalues=[1,4,7]
-     var estrogenvalues=[9,6,3]
-     var progesteronevalues=[0,9,12]
+     const xvalues=[]
+     for (var i = 1; i <= 100; i++) {
+   xvalues.push(i);
+}
+     const lhvalues=[]
+     const fshvalues=[]
+     const estrogenvalues=[]
+     const progesteronevalues=[]
+     var tx=0
+    
      
      var graph = new Chart("graph", {
   type: "line",
@@ -928,6 +933,22 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   options: {
   }
 });
+     
+      setInterval(addvalues, 1000);
+     
+     function addvalues(graph) {
+        if (lhunlock==true) {
+     lhvalues.push(lhlvl2);
+     fshvalues.push(fshlvl);
+     estrogenvalues.push(estlvl);
+     progesteronevalues.push(proglvl);
+          tx+=1;
+        if (tx>100) {
+         xvalues.push(tx); 
+        }
+         graph.update();
+     }}
+     
      
   
   function redirect() {
