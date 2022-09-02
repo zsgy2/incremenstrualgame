@@ -6,7 +6,7 @@
 </head>
 
   <body>
-  <div id="container">
+  <div id="container" style="display: flex">
   <div id="hormones">
   <h2>
   Hormones
@@ -53,6 +53,25 @@
    Produced by granulosa cells<br>Unlocks at 1.00e+10 LH units
     </p>
     </div>
+    
+    
+     <div id="slidecontainer" style="flex-grow: 1">
+  <h2>
+  Activation ratio of granulosa cells to thecal cells
+  </h2>
+  <p style= "display: inline">
+  Thecal cells
+  </p>
+  <input type="range" min="0" max="100" value="30" class="slider" id="slider">
+  <p style= "display: inline">
+  Granulosa cells
+  </p>
+  <p id="sliderno">
+  70% thecal cells, 30% granulosa cells
+  </p>
+</div>
+    
+    
     
     <div id="upgrades">
  <h2>
@@ -184,24 +203,6 @@
    </div>
    <div style="clear: both;">
    </div>
-   
-     <br>
-     
-  <div id="slidecontainer">
-  <h2>
-  Activation ratio of granulosa cells to thecal cells
-  </h2>
-  <p style= "display: inline">
-  Thecal cells
-  </p>
-  <input type="range" min="0" max="100" value="30" class="slider" id="slider">
-  <p style= "display: inline">
-  Granulosa cells
-  </p>
-  <p id="sliderno">
-  70% thecal cells, 30% granulosa cells
-  </p>
-</div>
      
      <br>
      
@@ -902,7 +903,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
 }
 
 #upgrades {
-  width: 600px;
+  width: 610px;
   float: right;
   display: table;
 }
