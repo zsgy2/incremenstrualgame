@@ -55,6 +55,10 @@
     </div>
     
     
+    <canvas id="graph" style="width:100%;max-width:700px"></canvas>
+    
+    
+    
      <div id="slidecontainer" style="flex-grow: 1">
   <h2>
   Activation ratio of granulosa cells to thecal cells
@@ -272,6 +276,9 @@
      How to play
      </button>
      
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
    <script>
    var time = 0
 var gnrhlvl=0
@@ -889,6 +896,39 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   buyup9()
   }
   }
+     
+     var xvalues=[1,2,3]
+     var lhvalues=[4,5,6]
+     var fshvalues=[1,4,7]
+     var estrogenvalues=[9,6,3]
+     var progesteronevalues=[0,9,12]
+     
+     var graph = new Chart("graph", {
+  type: "line",
+  data: {
+    labels: xvalues,
+    datasets: [{
+      data: lhvalues,
+      borderColor: "red",
+      fill: false
+    },{
+      data: fshvalues,
+      borderColor: "green",
+      fill: false
+    },{
+       data: estrogenvalues,
+      borderColor: "purple",
+      fill: false
+    },{
+      data: progesteronevalues,
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+  }
+});
+     
   
   function redirect() {
   window.open("https://weebly.com/")
