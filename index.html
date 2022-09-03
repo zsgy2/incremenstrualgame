@@ -952,6 +952,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
           linechart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
           linechart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
           tx+=1;
+          linechart.stop();
          linechart.update('none');
      }}
      
