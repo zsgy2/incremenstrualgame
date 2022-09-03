@@ -901,10 +901,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      for (var i = 1; i <= 100; i++) {
    xvalues.push(i);
 }
-     const lhvalues=[]
-     const fshvalues=[]
-     const estrogenvalues=[]
-     const progesteronevalues=[]
+    
      var tx=0
     
      
@@ -913,21 +910,29 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   data: {
     labels: xvalues,
     datasets: [{
-      data: lhvalues,
+      data: [],
       borderColor: "red",
-      fill: false
+      fill: false,
+      pointRadius: 0,
+      label: "LH"
     },{
-      data: fshvalues,
+      data: [],
       borderColor: "green",
-      fill: false
+      fill: false,
+       pointRadius: 0,
+      label: "FSH"
     },{
-       data: estrogenvalues,
+       data: [],
       borderColor: "purple",
-      fill: false
+      fill: false,
+       pointRadius: 0,
+      label: "Estrogen"
     },{
-      data: progesteronevalues,
+      data: [],
       borderColor: "blue",
-      fill: false
+      fill: false,
+       pointRadius: 0,
+      label: "Progesterone"
     }]
   },
   options: {
