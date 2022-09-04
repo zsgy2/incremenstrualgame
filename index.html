@@ -716,8 +716,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
 }
   
 function resetgraph() {
-  xvalues=xvalues0
-  linechart.data.labels=xvalues
+  linechart.data.labels=xvalues;
  linechart.data.datasets[0].data=[];
           linechart.data.datasets[1].data=[];
           linechart.data.datasets[2].data=[];
@@ -913,7 +912,6 @@ function resetgraph() {
      for (var i = 1; i <= 100; i++) {
    xvalues.push("");
 }
-    const xvalues0=xvalues
      var tx=0
     
      
