@@ -464,11 +464,11 @@ document.getElementById("slidecontainer").style.visibility= "hidden";
   fshlvl0-=Math.floor(fshlvl0/500)
   }
   if (ovulation==true) {
-  if (lhlimit==true && fshlvl>Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl/100+10)))) {
+  if (lhlimit==true && fshlvl>Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl+10)))) {
   } else {
-  fshlvl=Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl/100+10)));
+  fshlvl=Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl+10)));
   }} else {
-  fshlvl=Math.floor(fshlvl0*5**(-1*Math.log10(inhibinlvl/1000+1)));
+  fshlvl=Math.floor(fshlvl0*5**(-1*Math.log10(inhibinlvl/10+1)));
   }
    if (fshlvl>10000) {
   document.getElementById("fsh").innerHTML=fshlvl.toExponential(2) + " units"
@@ -497,7 +497,7 @@ document.getElementById("slidecontainer").style.visibility= "hidden";
   proglvl+=(30**c4);
   proglvl-=Math.floor((30**c4)*proglvl/300)
   } else {
-  proglvl+=3000*(5**up8)
+  proglvl+=1000*(5**up8)
   }}
    if (proglvl>10000) {
   if (lhlimit==true) {
