@@ -688,6 +688,7 @@ ovulation = false
 lhlimit=false
 slider.value=30
 resettext()
+resetgraph()
 }
 
 function resettext() {
@@ -714,6 +715,17 @@ document.getElementById("up8cost").innerHTML ="Cost: 3.00e+6 progesterone units"
 document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa cells"
 }
   
+function resetgraph() {
+  xvalues=xvalues0
+  linechart.data.labels=xvalues
+ linechart.data.datasets[0].data=[];
+          linechart.data.datasets[1].data=[];
+          linechart.data.datasets[2].data=[];
+          linechart.data.datasets[3].data=[];
+          tx=0
+          linechart.update('none');
+}
+     
   //cycle upgrades
    function buyc1() {
   c1+=1
@@ -901,7 +913,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      for (var i = 1; i <= 100; i++) {
    xvalues.push("");
 }
-    
+    const xvalues0=xvalues
      var tx=0
     
      
