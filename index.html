@@ -899,7 +899,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      
      const xvalues=[]
      for (var i = 1; i <= 100; i++) {
-   xvalues.push(i);
+   xvalues.push("");
 }
     
      var tx=0
@@ -938,7 +938,23 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
   options: {
     animation: {
         duration: 0
+    },
+    scales: {
+    y: {
+    display: true,
+      title: {
+            display: true,
+            text: "log10( hormone levels )"
+          }
+    },
+    x: {
+    display: true,
+      title: {
+            display: true,
+            text: "Time"
+          }
     }
+  }     
   }
 });
      
@@ -946,7 +962,7 @@ document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa 
      
      function addvalues() {
         if (lhunlock==true) {
-          linechart.data.labels[tx]=tx+1;
+          linechart.data.labels[tx]="";
           linechart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
           linechart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
           linechart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
