@@ -11,47 +11,98 @@
   <h2>
   Hormones
   </h2>
-  <h4>
-  GnRH <br> <i>(Produced by hypothalamus)</i>
+   <div id="gnrhdiv" style="border-style:solid;width:300px;margin-left:370px;background-color:#FFDCFC;">
+  <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;background-color:white;">
+  Hypothalamus
   </h4>
-    <p id="gnrh">
+  <h4 style="margin-top:0px;padding-top:10px;text-align:center;">
+  GnRH
+  </h4>
+    <p id="gnrh" style="text-align:center;padding-bottom:10px;">
     </p>
-  <h4>
-  LH <br> <i>(Produced by anterior pituitary)</i>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    
+    
+     <div id="antpitdiv" style="border-style:solid;width:603px;margin-left:220px;">
+      <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;">
+  Anterior pituitary
   </h4>
-   <p id="lh">
+  
+   <div id="fshdiv" style="background-color:#C9FFBF;width:300px;float:right;">
+     <h4 style="margin-top:10px;text-align:center;">
+  FSH
+  </h4>
+   <p id="fsh" style="text-align:center;padding-bottom:10px;">
    Unlocks at 4e+4 GnRH units
     </p>
-     <h4>
-  FSH <br> <i>(Produced by anterior pituitary)</i>
+    </div>
+    
+  <div id="lhdiv" style="background-color:mistyrose;width:300px;border-right:solid;height:100%;">
+  <h4 style="margin-top:0px;text-align:center;padding-top:10px;">
+  LH
   </h4>
-   <p id="fsh">
+   <p id="lh" style="text-align:center;padding-bottom:10px;">
    Unlocks at 4e+4 GnRH units
     </p>
-    <h4>
-    Androgens <br> <i>(To be converted to estrogen)</i>
+    </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    
+    <div style="width:1000px">
+     <div id="glomerulosadiv" style="border-style:solid;width:300px;margin-left:450px;float:right;">
+     <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;">
+  Glomerulosa cells
   </h4>
-   <p id="androgen">
-   Produced by thecal cells
-    </p>
-     <h4>
-  Estrogen <br> <i>(Stimulates its own production)</i>
+  
+  <div id="estrogendiv" style="background-color:#EABFFF;width:300px;border-bottom:solid;">
+     <h4 style="margin-top:0px;text-align:center;padding-top:10px;">
+  Estrogen
   </h4>
-   <p id="estrogen">
+   <p id="estrogen" style="text-align:center;padding-bottom:10px;">
    Produced by granulosa cells
     </p>
-     <h4>
-  Inhibin <br> <i>(Increases androgen and oestrogen production, but inhibits FSH production)</i>
+    </div>
+    
+    <div id="inhibindiv" style="background-color:#FFDDBF;width:300px;border-bottom:solid;">
+     <h4 style="margin-top:0px;text-align:center;padding-top:10px;">
+  Inhibin
   </h4>
-   <p id="inhibin">
+   <p id="inhibin" style="text-align:center;padding-bottom:10px;">
    Produced by granulosa cells
     </p>
-     <h4>
-  Progesterone <br> <i>(Depresses LH and FSH through negative feedback and inhibiting positive feedback effect of estrogen)</i>
+    </div>
+    
+    <div id="progesteronediv" style="background-color:#BFFFFE;width:300px;height:100%;">
+     <h4 style="margin-top:0px;text-align:center;padding-top:10px;">
+  Progesterone
   </h4>
-   <p id="progesterone">
+   <p id="progesterone" style="text-align:center;padding-bottom:10px;">
    Produced by granulosa cells<br>Unlocks at 1.00e+10 LH units
     </p>
+    </div>
+    
+    </div>
+    <div id="thecaldiv" style="border-style:solid;width:300px;margin-left:50px;background-color:#FEFFBF;">
+     <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;background-color:white;">
+  Thecal cells
+  </h4>
+    <h4 style="text-align:center;padding-top:10px;margin-top:0px;">
+    Androgens <br> <i>(To be converted to estrogen)</i>
+  </h4>
+   <p id="androgen" style="text-align:center;padding-bottom:10px;">
+   Produced by thecal cells
+    </p>
+    </div>
+    </div>
+    
+    
     </div>
     
     
@@ -988,7 +1039,7 @@ function resetgraph() {
    <style>
   
 #hormones {
-  width: 300px;
+  width: 1000px;
   float: left;
 }
 
