@@ -238,21 +238,12 @@
     
     
     
-     <div id="slidecontainer">
-  <h2>
-  Activation ratio of granulosa cells to thecal cells
-  </h2>
-  <p style= "display: inline">
-  Thecal cells
-  </p>
-  <input type="range" min="0" max="100" value="30" class="slider" id="slider">
-  <p style= "display: inline">
-  Granulosa cells
-  </p>
-  <p id="sliderno">
+     <div id="slidecontainer" style="">
+       <p id="sliderno">
   70% thecal cells, 30% granulosa cells
   </p>
-</div>
+  <input type="range" min="0" max="100" value="30" class="slider" id="slider">
+</div> 
     
       
    </div>
@@ -1057,16 +1048,14 @@ function resetgraph() {
 
 #sliderno {
  position: relative;
- left: 115px;
+ left: 30px;
 }
 
 #slidecontainer {
-  padding-left: 5px;
-   margin-left: auto;
-  margin-right: auto;
-  border-style: solid;
-  border-radius: 20px;
-  width: 500px
+   width: 500px;
+  position:absolute;
+  top:365px;
+  left:280px;
 }
 
 #upgrade1 {
