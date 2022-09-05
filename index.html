@@ -97,9 +97,11 @@
     <h4>
  Unlock slider to control activation ratio of granulosa and thecal cells
  </h4>
+         <br>
   <p id="up4cost">
   Cost: 1.00e+6 estrogen units
     </p>
+         <br>
    <button id="butup4" onclick="buyup4()">Buy</button>
       </div>
       </div> 
@@ -109,6 +111,8 @@
    <h4>
  Buying upgrades no longer spends resources
  </h4>
+           <br>
+           <br>
   <p id="up4halfcost">
   Cost: 3.00e+6 estrogen units
     </p>
@@ -142,7 +146,7 @@
  Estrogen exerts positive feedback effects on GnRH, LH and FSH instead
  </h4>
   <p id="up6cost">
-  Cost: 1.00e+9 GnRH units, 5.00e+7 LH units, 4.00e+5 FSH units, and 2.00e+8 estrogen units
+  Cost: 2.00e+8 estrogen units
     </p>
    <button id="butup6" onclick="buyup6()">Buy</button>
       </div>
@@ -153,6 +157,9 @@
     <h4>
  Induce ovulation
  </h4>
+              <br>
+              <br>
+              <br>
   <p id="up7cost">
   Cost: 1.00e+13 LH units <i>(LH surge required)</i>
     </p>
@@ -304,7 +311,6 @@ var up4cost = 10**6
 var up4halfcost=3*10**6
 var up5cost = 5*10**6
 var up5halfcost=10**7
-var up6cost=10**9
 var up7cost=10**13
 var up8cost=3*10**6
 var up9cost=1000
@@ -610,13 +616,6 @@ slider.oninput = function() {
    function buyup6() {
   up6=true;
   if (spend==true) {
-  gnrhlvl-=10**9;
-  lhlvl-=5*10**7;
-  if (fshlvl0>Math.floor((4*10**5)/[5**(-1*Math.log10(inhibinlvl/1000+1))])) {
-  fshlvl0-=Math.floor((4*10**5)/[5**(-1*Math.log10(inhibinlvl/1000+1))]);
-  } else {
-  fshlvl0=0
-  }
   estlvl-=2*10**8;
   }
    document.getElementById("up6cost").innerHTML = "Bought!";
@@ -675,7 +674,6 @@ up4cost = 10**6
 up4halfcost=3*10**6
 up5cost = 5*10**6
 up5halfcost=10**7
-up6cost=10**9
 up7cost=10**13
 up8cost=(3*10**6)/(5*c5)
 lhunlock = false
@@ -705,7 +703,7 @@ document.getElementById("up4cost").innerHTML ="Cost: 1.00e+6 estrogen units"
 document.getElementById("up4halfcost").innerHTML ="Cost: 3.00e+6 estrogen units"
 document.getElementById("up5cost").innerHTML ="Cost: 5.00e+6 LH units"
 document.getElementById("up5halfcost").innerHTML ="Cost: 1.00e+7 estrogen units"
-document.getElementById("up6cost").innerHTML ="Cost: 1.00e+9 GnRH units, 5.00e+7 LH units, 4.00e+5 FSH units, and 2.00e+8 estrogen units"
+document.getElementById("up6cost").innerHTML ="Cost: 2.00e+8 estrogen units"
 document.getElementById("up7cost").innerHTML ="Cost: 1.00e+13 LH units <i>(LH surge required)</i>"
 if (c5>0) {
 document.getElementById("up8cost").innerHTML ="Cost: 6.00e+5 progesterone units"
@@ -812,7 +810,7 @@ function resetgraph() {
  } else {
   document.getElementById("butup5half").disabled = false
   }
-   if (gnrhlvl<10**9 || lhlvl<5*10**7 || fshlvl<4*10**5 || estlvl<2*10**8 || up6==true) {
+   if (estlvl<2*10**8 || up6==true) {
   document.getElementById("butup6").disabled = true
  } else {
   document.getElementById("butup6").disabled = false
@@ -1020,7 +1018,8 @@ function resetgraph() {
 
 #slidecontainer {
   padding-left: 5px;
-   margin-left: 300px;
+   margin-left: auto;
+  margin-right: auto;
   border-style: solid;
   border-radius: 20px;
   width: 500px
