@@ -239,7 +239,7 @@
     
      <div id="slidecontainer" style="">
        <p id="sliderno">
-         <i>70% thecal cells, 30% granulosa cells</i>
+         70% thecal cells, 30% granulosa cells
   </p>
   <input type="range" min="0" max="100" value="30" class="slider" id="slider">
 </div> 
@@ -569,7 +569,7 @@ var output = document.getElementById("sliderno");
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-  output.innerHTML = <i>(100-this.value)+"% thecal cells, "+slider.value+"% granulosa cells"</i>;
+  output.innerHTML = (100-this.value)+"% thecal cells, "+slider.value+"% granulosa cells";
 }
   
   
@@ -753,7 +753,7 @@ document.getElementById("up8cost").innerHTML ="Cost: 6.00e+5 progesterone units"
 } else {
 document.getElementById("up8cost").innerHTML ="Cost: 3.00e+6 progesterone units"
 }
-document.getElementById("sliderno").innerHTML ="<i>70% thecal cells, 30% granulosa cells</i>"
+document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa cells"
 }
   
 function resetgraph() {
