@@ -57,7 +57,7 @@
     
     <div style="width:800px">
      <div id="glomerulosadiv" style="border-style:solid;width:200px;float:right;">
-     <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;">
+     <h4 id="glomerulosatext" style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;">
   Glomerulosa cells
   </h4>
   
@@ -90,7 +90,7 @@
     </div>
     
     <div id="thecaldiv" style="border-style:solid;width:200px;margin-left:50px;background-color:#FEFFBF;">
-     <h4 style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;background-color:white;">
+     <h4 id="thecaltext" style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;background-color:white;">
   Thecal cells
   </h4>
     <h4 style="text-align:center;padding-top:10px;margin-top:0px;">
@@ -243,16 +243,16 @@
   </p>
   <input type="range" min="0" max="100" value="30" class="slider" id="slider">
 </div> 
-     <img src="down.png" style="height:50px;width:30px;position:absolute;top:199px;left:420px;">
-       <img src="leftdown.png" style="height:50px;width:50px;position:absolute;top:374px;left:220px;">
-        <img src="rightdown.png" style="height:50px;width:50px;position:absolute;top:374px;left:600px;">
-         <img src="black.png" style="height:40px;width:330px;position:absolute;top:454px;left:270px;">
-          <img src="itself.png" style="height:40px;width:60px;position:absolute;top:484px;left:540px;">
-          <img src="itself.png" style="height:50px;width:70px;position:absolute;top:521px;left:530px;">
-           <img src="upleft.png" style="height:80px;width:330px;position:absolute;top:519px;left:270px;">
-            <img src="bigred.png" style="height:400px;width:310px;position:absolute;top:124px;left:540px;">
-              <img src="inhibin.png" style="height:300px;width:280px;position:absolute;top:299px;left:640px;">
-               <img src="prog.png" style="height:550px;width:380px;position:absolute;top:159px;left:550px;">
+     <img id="downfirst" src="down.png" style="height:50px;width:30px;position:absolute;top:199px;left:420px;">
+       <img id="leftdown" src="leftdown.png" style="height:50px;width:50px;position:absolute;top:374px;left:220px;">
+        <img id="rightdown" src="rightdown.png" style="height:50px;width:50px;position:absolute;top:374px;left:600px;">
+         <img id="black" src="black.png" style="height:40px;width:330px;position:absolute;top:454px;left:270px;">
+          <img id="estitself" src="itself.png" style="height:40px;width:60px;position:absolute;top:484px;left:540px;">
+          <img id="inhibinest" src="itself.png" style="height:50px;width:70px;position:absolute;top:521px;left:530px;">
+           <img id="upleft" src="upleft.png" style="height:80px;width:330px;position:absolute;top:519px;left:270px;">
+            <img id="bigest" src="bigred.png" style="height:400px;width:310px;position:absolute;top:124px;left:540px;">
+              <img id="inhibinfsh" src="inhibin.png" style="height:300px;width:280px;position:absolute;top:299px;left:640px;">
+               <img id="progarrow" src="prog.png" style="height:550px;width:380px;position:absolute;top:159px;left:550px;">
       
    </div>
    <div style="clear: both;">
@@ -376,6 +376,16 @@ var c5=0
 
 //initial slider condition
 document.getElementById("slidecontainer").style.visibility= "hidden";
+ document.getElementById("downfirst").style.visibility= "hidden";
+     document.getElementById("leftdown").style.visibility= "hidden";
+document.getElementById("rightdown").style.visibility= "hidden";
+     document.getElementById("black").style.visibility= "hidden";
+     document.getElementById("estitself").style.visibility= "hidden";
+     document.getElementById("inhibinest").style.visibility= "hidden";
+     document.getElementById("upleft").style.visibility= "hidden";
+     document.getElementById("bigest").style.visibility= "hidden";
+     document.getElementById("inhibinfsh").style.visibility= "hidden";
+     document.getElementById("progarrow").style.visibility= "hidden";
 
 
   setInterval(addtime,10);
@@ -613,6 +623,14 @@ slider.oninput = function() {
   lhlvl=lhlvl-up3cost;
   fshlvl0=fshlvl0-up3cost;
   }
+     document.getElementById("leftdown").style.visibility= "visible";
+document.getElementById("rightdown").style.visibility= "visible";
+     document.getElementById("black").style.visibility= "visible";
+     document.getElementById("estitself").style.visibility= "visible";
+     document.getElementById("inhibinest").style.visibility= "visible";
+     document.getElementById("upleft").style.visibility= "visible";
+     document.getElementById("bigest").style.visibility= "visible";
+     document.getElementById("inhibinfsh").style.visibility= "visible";
   document.getElementById("up3cost").innerHTML = "Bought!";
    document.getElementById("butup3").disabled = true
   }
@@ -661,6 +679,7 @@ slider.oninput = function() {
   if (spend==true) {
   estlvl-=2*10**8;
   }
+      document.getElementById("bigest").src= "biggreen.png";
    document.getElementById("up6cost").innerHTML = "Bought!";
    document.getElementById("butup6").disabled = true
   }
@@ -672,6 +691,9 @@ slider.oninput = function() {
   if (spend==true) {
   lhlvl=lhlvl-up7cost;
   }
+    document.getElementById("bigest").src= "bigred.png";
+    document.getElementById("glomerulosatext").innerHTML="Large luteal cells";
+    document.getElementById("thecaltext").innerHTML="Small luteal cells";
   document.getElementById("up7cost").innerHTML = "Bought!";
    document.getElementById("butup7").disabled = true
   }
@@ -754,6 +776,18 @@ document.getElementById("up8cost").innerHTML ="Cost: 6.00e+5 progesterone units"
 document.getElementById("up8cost").innerHTML ="Cost: 3.00e+6 progesterone units"
 }
 document.getElementById("sliderno").innerHTML ="70% thecal cells, 30% granulosa cells"
+  document.getElementById("downfirst").style.visibility= "hidden";
+  document.getElementById("leftdown").style.visibility= "hidden";
+document.getElementById("rightdown").style.visibility= "hidden";
+     document.getElementById("black").style.visibility= "hidden";
+     document.getElementById("estitself").style.visibility= "hidden";
+     document.getElementById("inhibinest").style.visibility= "hidden";
+     document.getElementById("upleft").style.visibility= "hidden";
+     document.getElementById("bigest").style.visibility= "hidden";
+     document.getElementById("inhibinfsh").style.visibility= "hidden";
+     document.getElementById("progarrow").style.visibility= "hidden";
+  document.getElementById("glomerulosatext").innerHTML="Glomerulosa cells";
+    document.getElementById("thecaltext").innerHTML="Thecal cells";
 }
   
 function resetgraph() {
@@ -904,9 +938,11 @@ function resetgraph() {
   if (gnrhlvl>4*10**4) {
   lhunlock=true;
   fshunlock=true;
+    document.getElementById("downfirst").style.visibility= "visible";
   }
   if (lhlvl>10**10) {
   progunlock=true;
+    document.getElementById("progarrow").style.visibility="visible";
   }
   if (proglvl>10**8 && lhlvl2<10**4) {
   lhlimit=true
