@@ -440,7 +440,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   estlvl+= Math.floor((5**up8)*(4**up5)*[Math.sqrt(lhlvl)*Math.cbrt(Math.log10(inhibinlvl+10))]*(100-slider.value)/100)
   } else {
   if (lhlimit==true) {
-  estlvl+=Math.floor(estincrement*lhlvl2/10**8)
+  estlvl+=10;
   } else {
   estlvl=estlvl+Math.floor(estincrement)
   }}
@@ -465,7 +465,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   andlvl=0;
   } else {
   if (lhlimit==true) {
-  andlvl+=Math.floor(andincrement*lhlvl2/10**9);
+  andlvl+=10;
   } else {
   if (ovulation==true) {
    andlvl=Math.floor(andlvl+andincrement/10);
@@ -496,7 +496,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   lhlvl-=Math.floor(lhlvl/500)
   }
   if (ovulation==true) {
-  if (lhlimit==true && lhlvl2>Math.floor(lhlvl/(50*proglvl+1))) {
+  if (lhlimit==true && lhlvl2<Math.floor(lhlvl/(50*proglvl+1))) {
   } else {
   lhlvl2=Math.floor(lhlvl/(50*proglvl+1));
   }} else {
@@ -522,7 +522,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   fshlvl0-=Math.floor(fshlvl0/500)
   }
   if (ovulation==true) {
-  if (lhlimit==true && fshlvl>Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl+10)))) {
+  if (lhlimit==true && fshlvl<Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl+10)))) {
   } else {
   fshlvl=Math.floor(fshlvl0/((50*proglvl+1)*Math.log10(inhibinlvl+10)));
   }} else {
@@ -1053,7 +1053,7 @@ function resetgraph() {
       setInterval(addvalues, 1000);
      
      function addvalues() {
-        if (lhunlock==true) {
+        if (up3==true) {
           linechart.data.labels[tx]="";
           linechart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
           linechart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
