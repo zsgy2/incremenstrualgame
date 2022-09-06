@@ -149,7 +149,7 @@
       Unlock slider to control activation ratio of granulosa and thecal cells <br><br>
  </h4>
   <p id="up4cost">
-  Cost: 1.00e+6 estrogen units
+  Cost: 3.00e+6 estrogen units
     </p>
    <button id="butup4" onclick="buyup4()">Buy</button>
       </div>
@@ -161,7 +161,7 @@
      Buying upgrades no longer spends resources <br><br><br>
  </h4>
   <p id="up4halfcost">
-  Cost: 3.00e+6 estrogen units
+  Cost: 1.00e+6 estrogen units
     </p>
    <button id="butup4half" onclick="buyup4half()">Buy</button>
       </div>
@@ -364,11 +364,12 @@ var spend=true
 var up5=0
 var up6=false
 var up8=0
+var up8x=0
 var up1cost=400
 var up2cost = 10**5
 var up3cost = 2*10**6
-var up4cost = 10**6
-var up4halfcost=3*10**6
+var up4cost = 3*10**6
+var up4halfcost=10**6
 var up5cost = 5*10**6
 var up5halfcost=10**7
 var up7cost=10**13
@@ -431,6 +432,9 @@ document.getElementById("rightdown").style.visibility= "hidden";
   checkunlocks();
   if (autobuy==true) {
   autobuyupgrades();
+  }
+  if (up8x>0) {
+  up8timer();
   }
   }
   
@@ -715,17 +719,23 @@ document.getElementById("rightdown").style.visibility= "visible";
   }
   
    function buyup8() {
-  up8+=1
-  up8cost=up8cost*5
+  up8x+=1
   if (spend==true) {
   proglvl=proglvl-up8cost;
   }
-   if (up8==3) {
+      up8cost=up8cost*5
+   if (up8x==3) {
    document.getElementById("up8cost").innerHTML = "Bought! (Limit of 3 purchases)";
    document.getElementById("butup8").disabled = true;
   } else {
    document.getElementById("up8cost").innerHTML = "Cost: "+up8cost.toExponential(2)+" progesterone units";
   }}
+     
+  function up8timer() {
+   if (up8<up8x) {
+    up8+=0.001 
+   }
+  }
   
   function buyup9() {
   cycles+=1;
@@ -748,11 +758,12 @@ spend=true
 up5=0
 up6=false
 up8=0
+up8x=0
 up1cost=400
 up2cost = 10**5
 up3cost = 2*10**6
-up4cost = 10**6
-up4halfcost=3*10**6
+up4cost = 3*10**6
+up4halfcost=10**6
 up5cost = 5*10**6
 up5halfcost=10**7
 up7cost=10**13
@@ -780,8 +791,8 @@ document.getElementById("progesterone").innerHTML ="Produced by granulosa cells 
 document.getElementById("up1cost").innerHTML ="Cost: 400 GnRH units"
 document.getElementById("up2cost").innerHTML ="Cost: 1.00e+5 GnRH units"
 document.getElementById("up3cost").innerHTML = "Cost: 2.00e+6 LH units and 2.00e+6 FSH units"
-document.getElementById("up4cost").innerHTML ="Cost: 1.00e+6 estrogen units"
-document.getElementById("up4halfcost").innerHTML ="Cost: 3.00e+6 estrogen units"
+document.getElementById("up4cost").innerHTML ="Cost: 3.00e+6 estrogen units"
+document.getElementById("up4halfcost").innerHTML ="Cost: 1.00e+6 estrogen units"
 document.getElementById("up5cost").innerHTML ="Cost: 5.00e+6 LH units"
 document.getElementById("up5halfcost").innerHTML ="Cost: 1.00e+7 estrogen units"
 document.getElementById("up6cost").innerHTML ="Cost: 2.00e+8 estrogen units"
@@ -822,7 +833,7 @@ function resetgraph() {
   c1+=1
   up2+=1
   cyclepoints-=c1cost;
-  c1cost=c1cost*3
+  c1cost=c1cost*2
   document.getElementById("cyclepoints").innerHTML =cyclepoints
   if (c1>1) {
   document.getElementById("c1cost").innerHTML = "Bought! (Limit of 2 purchases)"
