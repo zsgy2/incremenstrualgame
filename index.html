@@ -236,7 +236,7 @@
       
     
     
-    
+      <canvas id="chart" style="width:100%;max-width:500px;max-height:300px;"></canvas>
      <div id="slidecontainer" style="">
        <p id="sliderno" style="font-style:italic">
          70% thecal cells, 30% granulosa cells
@@ -259,7 +259,6 @@
    </div>
      
      <br>
-     <canvas id="chart" style="width:100%;max-width:500px;max-height:300px;"></canvas>
   <div id="cycles">
    <h2>
   Cycles 
@@ -446,9 +445,9 @@ document.getElementById("rightdown").style.visibility= "hidden";
   estlvl=estlvl+Math.floor(estincrement)
   }}
   if (estimprove==false) {
-  estincrement = (10**up8)*[Math.sqrt(fshlvl)*Math.cbrt(Math.log10(estlvl+10))*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
+  estincrement = (5*10**up8)*[Math.sqrt(fshlvl)*Math.cbrt(Math.log10(estlvl+10))*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
   } else {
-  estincrement = (10**up8)*[Math.sqrt(fshlvl)*(Math.log10(estlvl+10)**2)*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
+  estincrement = (5*10**up8)*[Math.sqrt(fshlvl)*(Math.log10(estlvl+10)**2)*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
   }
    if (ovulation==true) {
   estlvl-=Math.floor(estlvl/100)
