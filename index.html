@@ -259,24 +259,33 @@
    </div>
      
      <br>
-  <div id="cycles">
+ <div id="cycles">
    <h2>
   Cycles 
   </h2>
-  <h4>
+  
+   <div style="display: table-row">
+   <div style="display:table-cell;width:200px;border-style:solid;">
+  <h4 style="text-align:center">
   Cycles completed:
   </h4>
-    <p id="cyclesno">
+    <p id="cyclesno" style="text-align:center">
     0
     </p>
-    <h4>
+    </div>
+    
+    <div style="display:table-cell;width:200px;border-style:solid;">
+    <h4 style="text-align:center">
   Cycle points left:
   </h4>
-    <p id="cyclepoints">
+    <p id="cyclepoints" style="text-align:center">
     0
     </p>
-    <div id="cycleupgrades">
+    </div>
+    </div>
     
+     <div style="display: table-row">
+    <div id="c1div">
     <h4>
  Triple the speed of GnRH production
  </h4>
@@ -284,7 +293,9 @@
   Cost: 1 cycle point
     </p>
    <button id="butc1" onclick="buyc1()">Buy</button>
+   </div>
    
+    <div id="c2div">
 <h4>
  Autobuy upgrades (excludes cycle upgrades)
  </h4>
@@ -292,7 +303,11 @@
   Cost: 2 cycle points
     </p>
    <button id="butc2" onclick="buyc2()">Buy</button>
+   </div>
+   </div>
    
+    <div style="display: table-row">
+    <div id="c3div">
    <h4>
  Estrogen exerts less negative feedback on GnRH, LH and FSH
  </h4>
@@ -300,7 +315,9 @@
   Cost: 1 cycle point
     </p>
    <button id="butc3" onclick="buyc3()">Buy</button>
+   </div>
    
+    <div id="c4div">
    <h4>
    Progesterone falls much faster after luteolysis
  </h4>
@@ -308,7 +325,11 @@
   Cost: 1 cycle point
     </p>
    <button id="butc4" onclick="buyc4()">Buy</button>
+   </div>
+   </div>
    
+    <div style="display: table-row">
+    <div id="c5div">
     <h4>
    "Corpus luteum matures" upgrade cost is divided by 5
  </h4>
@@ -316,14 +337,11 @@
   Cost: 1 cycle point
     </p>
    <button id="butc5" onclick="buyc5()">Buy</button>
-    </div>
+   </div>
+   </div>
     </div>
     
  
-    
-     <button onclick="redirect()">
-     How to play
-     </button>
      
     <script
 src="https://cdn.jsdelivr.net/npm/chart.js">
@@ -389,7 +407,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
 
   setInterval(addtime,10);
   function addtime() {
-  time+=1;
+  //time+=1;
   addgnrh();
   if (up3 == true) {
   addest();
@@ -1057,7 +1075,7 @@ function resetgraph() {
           linechart.data.labels[tx]="";
           linechart.data.datasets[0].data[tx] =Math.log10(lhlvl2+1);
           linechart.data.datasets[1].data[tx] =Math.log10(fshlvl+1);
-          linechart.data.datasets[2].data[tx] =Math.log10(estlvl+1);
+          linechart.data.datasets[2].data[tx] =Math.log10(estlvl/3.16+1);
           linechart.data.datasets[3].data[tx] =Math.log10(proglvl+1);
           tx+=1;
           linechart.stop();
@@ -1066,9 +1084,7 @@ function resetgraph() {
      
      
   
-  function redirect() {
-  window.open("https://weebly.com/")
-  }
+
    </script>
    <style>
   
@@ -1272,6 +1288,108 @@ function resetgraph() {
 }
      
      #butup9 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+     
+    #cycles {
+        width: 410px;
+  float: right;
+  display: table;
+ border-spacing: 2px;
+     }
+     
+     #c1div {
+  padding-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: grey;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  display: table-cell;
+}
+     
+     #c2div {
+  padding-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: grey;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  display: table-cell;
+}
+     
+     #c3div {
+  padding-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: grey;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  display: table-cell;
+}
+     
+     #c4div {
+  padding-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: grey;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  display: table-cell;
+}
+     
+     #c5div {
+  padding-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: grey;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  display: table-cell;
+}
+
+ #butc1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+#butc2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+#butc3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+#butc4 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+#butc5 {
   display: block;
   margin-left: auto;
   margin-right: auto;
