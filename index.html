@@ -890,78 +890,108 @@ function resetgraph() {
   }}
   if (gnrhlvl<up2cost || up2>9) {
   document.getElementById("butup2").disabled = true
+    document.getElementById("upgrade2").style.borderColor="grey"
  } else {
   document.getElementById("butup2").disabled = false
+   document.getElementById("upgrade2").style.borderColor="red"
   }
    if (fshlvl<up3cost || lhlvl<up3cost || up3==true) {
   document.getElementById("butup3").disabled = true
+     document.getElementById("upgrade3").style.borderColor="grey"
  } else {
   document.getElementById("butup3").disabled = false
+   document.getElementById("upgrade3").style.borderColor="red"
   }
    if (estlvl<up4cost || document.getElementById("slidecontainer").style.visibility=="visible" || ovulation==true) {
   document.getElementById("butup4").disabled = true
+     document.getElementById("upgrade4").style.borderColor="grey"
  } else {
   document.getElementById("butup4").disabled = false
+   document.getElementById("upgrade4").style.borderColor="red"
   }
    if (estlvl<up4halfcost || spend==false) {
   document.getElementById("butup4half").disabled = true
+     document.getElementById("upgrade4half").style.borderColor="grey"
  } else {
   document.getElementById("butup4half").disabled = false
+   document.getElementById("upgrade4half").style.borderColor="red"
   }
    if (lhlvl<up5cost || up5==2) {
   document.getElementById("butup5").disabled = true
+     document.getElementById("upgrade5").style.borderColor="grey"
  } else {
   document.getElementById("butup5").disabled = false
+   document.getElementById("upgrade5").style.borderColor="red"
   }
   if (estlvl<up5halfcost || estimprove==true) {
   document.getElementById("butup5half").disabled = true
+    document.getElementById("upgrade5half").style.borderColor="grey"
  } else {
   document.getElementById("butup5half").disabled = false
+   document.getElementById("upgrade5half").style.borderColor="red"
   }
    if (estlvl<2*10**8 || up6==true) {
   document.getElementById("butup6").disabled = true
+     document.getElementById("upgrade6").style.borderColor="grey"
  } else {
   document.getElementById("butup6").disabled = false
+   document.getElementById("upgrade6").style.borderColor="red"
   }
    if (lhlvl<up7cost || ovulation==true) {
   document.getElementById("butup7").disabled = true
+     document.getElementById("upgrade7").style.borderColor="grey"
  } else {
   document.getElementById("butup7").disabled = false
+   document.getElementById("upgrade7").style.borderColor="red"
   }
    if (proglvl<up8cost || up8==3) {
   document.getElementById("butup8").disabled = true
+     document.getElementById("upgrade8").style.borderColor="grey"
  } else {
   document.getElementById("butup8").disabled = false
+   document.getElementById("upgrade8").style.borderColor="red"
   }
    if (proglvl>up9cost || lhlimit==false) {
   document.getElementById("butup9").disabled = true
+     document.getElementById("upgrade9").style.borderColor="grey"
  } else {
   document.getElementById("butup9").disabled = false
+   document.getElementById("upgrade9").style.borderColor="red"
   }
    if (cyclepoints<c1cost || c1>1) {
   document.getElementById("butc1").disabled = true
+     document.getElementById("c1div").style.borderColor="grey"
  } else {
   document.getElementById("butc1").disabled = false
+   document.getElementById("c1div").style.borderColor="red"
   }
   if (cyclepoints<2 || autobuy==true) {
   document.getElementById("butc2").disabled = true
+    document.getElementById("c2div").style.borderColor="grey"
  } else {
   document.getElementById("butc2").disabled = false
+   document.getElementById("c2div").style.borderColor="red"
   }
    if (cyclepoints<1 || c3==true) {
   document.getElementById("butc3").disabled = true
+     document.getElementById("c3div").style.borderColor="grey"
  } else {
   document.getElementById("butc3").disabled = false
+   document.getElementById("c3div").style.borderColor="red"
   }
    if (cyclepoints<1 || c4>0) {
   document.getElementById("butc4").disabled = true
+     document.getElementById("c4div").style.borderColor="grey"
  } else {
   document.getElementById("butc4").disabled = false
+   document.getElementById("c4div").style.borderColor="red"
   }
   if (cyclepoints<1 || c5>0) {
   document.getElementById("butc5").disabled = true
+    document.getElementById("c5div").style.borderColor="grey"
  } else {
   document.getElementById("butc5").disabled = false
+   document.getElementById("c5div").style.borderColor="red"
   }
   }
   
