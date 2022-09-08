@@ -879,11 +879,14 @@ function resetgraph() {
   function checkbuybuttons() {
   if (gnrhlvl<up1cost || up1>31) {
   document.getElementById("butup1").disabled = true
+  document.getElementById("upgrade1").style.borderColor="grey"
  } else {
  if (up1==10 && up3==false) {
  document.getElementById("butup1").disabled = true
+   document.getElementById("upgrade1").style.borderColor="grey"
  } else {
   document.getElementById("butup1").disabled = false
+   document.getElementById("upgrade1").style.borderColor="red"
   }}
   if (gnrhlvl<up2cost || up2>9) {
   document.getElementById("butup2").disabled = true
