@@ -58,7 +58,7 @@
     <div style="width:800px">
      <div id="glomerulosadiv" style="border-style:solid;width:200px;float:right;">
      <h4 id="glomerulosatext" style="border-bottom:solid;padding-bottom:2px;margin-top:0px;margin-bottom:0px;text-align:center;">
-  Glomerulosa cells
+  Granulosa cells
   </h4>
   
   <div id="estrogendiv" style="background-color:#EABFFF;width:200px;border-bottom:solid;">
@@ -587,7 +587,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   proglvl+=(30**c4);
   proglvl-=Math.floor((30**c4)*proglvl/300)
   } else {
-  proglvl+=1000*(5**up8x)
+  proglvl+=2000*(5**up8x)
   }}
    if (proglvl>10000) {
   if (lhlimit==true) {
@@ -824,7 +824,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
      document.getElementById("bigest").style.visibility= "hidden";
      document.getElementById("inhibinfsh").style.visibility= "hidden";
      document.getElementById("progarrow").style.visibility= "hidden";
-  document.getElementById("glomerulosatext").innerHTML="Glomerulosa cells";
+  document.getElementById("glomerulosatext").innerHTML="Granulosa cells";
     document.getElementById("thecaltext").innerHTML="Thecal cells";
   document.getElementById("realgraph").style.visibility= "hidden";
 }
@@ -879,7 +879,12 @@ function resetgraph() {
    function buyc5() {
   c5+=1
   up8cost=up8cost/5
+      if (up8x==3) {
+   document.getElementById("up8cost").innerHTML = "Bought! (Limit of 3 purchases)";
+   document.getElementById("butup8").disabled = true;
+  } else {
    document.getElementById("up8cost").innerHTML = "Cost: "+up8cost.toExponential(2)+" progesterone units";
+  }
   cyclepoints-=1;
   document.getElementById("cyclepoints").innerHTML =cyclepoints
   document.getElementById("c5cost").innerHTML = "Bought!"
