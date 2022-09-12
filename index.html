@@ -422,6 +422,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
      document.getElementById("inhibinfsh").style.visibility= "hidden";
      document.getElementById("progarrow").style.visibility= "hidden";
    document.getElementById("realgraph").style.visibility= "hidden";
+     setTimeout(alertboxfade,7000)
      
 
   setInterval(addtime,10);
@@ -1162,7 +1163,7 @@ function resetgraph() {
 //appear
       function alertboxappear() {
   document.getElementById('alertbox').style.transition = "none";
-  document.getElementById('alertbox').style.opacity=0.9;
+  document.getElementById('alertbox').style.opacity=0.95;
   flushcss()
   document.getElementById('alertbox').style.transition = "";
    document.getElementById('exitpopupbut').style.cursor="pointer"
@@ -1189,11 +1190,12 @@ function flushcss() {
      
   #alertbox {
   background-color: lightblue;
-  opacity: 90%;
+  opacity: 95%;
   width: 250px;
   text-align: center;
   transition: opacity 3s;
   cursor: default;
+  padding: 15px 15px 15px 15px;
 }
 
 #alertbox button {
@@ -1206,6 +1208,7 @@ function flushcss() {
      left: 0;
      top: 0;
      padding-top: 0px;
+     padding-left: 0px;
      cursor: pointer;
 }
      
