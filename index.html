@@ -355,6 +355,10 @@
       </p>
     </div>
  
+     <div id="alertbox" style="position:fixed;bottom:0;right:0;">
+    Welcome to the incremenstrual game! <br> Your goal is to buy all the upgrades to complete the menstrual cycle.
+    <button id="exitpopupbut" onclick="exitpopup()">x</button>
+    </div>
      
     <script
 src="https://cdn.jsdelivr.net/npm/chart.js">
@@ -1147,12 +1151,65 @@ function resetgraph() {
          linechart.update('none');
      }}
      
+     //alertbox stuff
      
+     //fade after time
+      function alertboxfade() {
+  document.getElementById('alertbox').style.opacity=0;
+   document.getElementById('exitpopupbut').style.cursor="default";
+}
+
+//appear
+      function alertboxappear() {
+  document.getElementById('alertbox').style.transition = "none";
+  document.getElementById('alertbox').style.opacity=0.9;
+  flushcss()
+  document.getElementById('alertbox').style.transition = "";
+   document.getElementById('exitpopupbut').style.cursor="pointer"
+   setTimeout(alertboxfade,7000)
+}
+
+     //pressing x on popup
+function exitpopup() {
+   document.getElementById('alertbox').style.transition = "none";
+     document.getElementById('alertbox').style.opacity = 0;
+    flushcss();
+    // restore animation
+     document.getElementById('alertbox').style.transition = "";
+     document.getElementById('exitpopupbut').style.cursor="default"
+}
+
+function flushcss() {
+  document.getElementById('alertbox').offsetHeight= document.getElementById('alertbox').offsetHeight;
+}
   
 
    </script>
    <style>
-  
+     
+  #alertbox {
+  background-color: lightblue;
+  opacity: 90%;
+  width: 250px;
+  text-align: center;
+  transition: opacity 3s;
+  cursor: default;
+}
+
+#alertbox button {
+     border-radius: 0px;
+     border: none;
+     background: transparent;
+     font-size: 1em;
+     color: black;
+     position: absolute;
+     left: 0;
+     top: 0;
+     padding-top: 0px;
+     cursor: pointer;
+}
+     
+     
 #button {
   cursor: pointer;
      }
