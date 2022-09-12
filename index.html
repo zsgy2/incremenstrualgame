@@ -8,6 +8,11 @@
   <body>
   <div id="container" style="">
   <div id="hormones">
+    
+  <div style="height:250px;width:250px;border:1px solid;overflow:auto;display:inline;">
+Testing
+</div>  
+    
   <h2 style="text-align:center">
   Hormones
   </h2>
@@ -482,7 +487,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
   estincrement = (5*10**up8)*[Math.sqrt(fshlvl)*(Math.log10(estlvl+10)**2)*Math.cbrt(Math.log10(inhibinlvl+10))]*slider.value/100
   }
    if (ovulation==true) {
-  estlvl-=Math.floor(estlvl/100)
+  estlvl-=Math.floor(estlvl/50)
   }
    if (estlvl>10000) {
   document.getElementById("estrogen").innerHTML=estlvl.toExponential(2) + " units"
@@ -777,7 +782,7 @@ up4halfcost=10**6
 up5cost = 5*10**6
 up5halfcost=10**7
 up7cost=10**13
-up8cost=(3*10**6)/(5*c5)
+up8cost=(3*10**6)/(5**c5)
 lhunlock = false
 fshunlock = false
 progunlock=false
