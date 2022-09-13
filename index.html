@@ -360,9 +360,14 @@
     <button id="exitpopupbut" onclick="exitpopup()">x</button>
     </div>
      
-     <button style="position:relative;bottom:0;" onclick="openlog()">
+    <div style="position:relative;bottom:0;">
+      <h4>
+        Read any blue messages you missed here:
+      </h4>
+     <button onclick="openlog()">
     Message log
     </button>
+    </div>
     
     <div id="messagelog" style="position:fixed;top:0;left:0;background-color:#D3D3D3;opacity:90%;height:100vh;visibility:hidden">
       <h2>
@@ -710,6 +715,11 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
     //alert5
      document.getElementById('alertbox1').innerHTML="Go wild with the slider, but decreasing androgen production may also limit your estrogen production.";
      alertboxappear()
+     scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Go wild with the slider, but decreasing androgen production may also limit your estrogen production. <br> <br> </span>`,
+);
   }
   
    function buyup4half() {
@@ -753,6 +763,11 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
      //alert6
       document.getElementById('alertbox1').innerHTML="The hypothalamus-pituitary-gonadal positive feedback cycle is what causes the LH surge.<br>A surge in FSH is prevented by inhibin.";
      alertboxappear()
+     scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">The hypothalamus-pituitary-gonadal positive feedback cycle is what causes the LH surge.<br>A surge in FSH is prevented by inhibin. <br> <br> </span>`,
+);
   }
   
   function buyup7() {
@@ -769,6 +784,11 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
     //alert8
      document.getElementById('alertbox1').innerHTML="During ovulation, the egg is released from the follicle.<br>The follicle then becomes the corpus luteum.<br>Thecal cells become small luteal cells, and granulosa cells become large luteal cells.";
      alertboxappear()
+      scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">During ovulation, the egg is released from the follicle.<br>The follicle then becomes the corpus luteum.<br>Thecal cells become small luteal cells, and granulosa cells become large luteal cells. <br> <br> </span>`,
+);
   }
   
    function buyup8() {
@@ -1027,6 +1047,11 @@ function resetgraph() {
      document.getElementById('alertbox1').innerHTML="The corpus luteum has degenerated.<br>Buying the last upgrade will restart the game, giving you 1 cycle point.<br>Scroll down to compare your hormone graph with what it's supposed to look like.";
      alertboxappear()
       alert10=1
+       scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">The corpus luteum has degenerated.<br>Buying the last upgrade will restart the game, giving you 1 cycle point.<br>Scroll down to compare your hormone graph with what it's supposed to look like. <br> <br> </span>`,
+);
     }
   }
    if (cyclepoints<c1cost || c1>1) {
@@ -1075,17 +1100,32 @@ function resetgraph() {
      document.getElementById('alertbox1').innerHTML="LH and FSH have begun production.<br>GnRH exerts positive feedback effects on them.";
      alertboxappear()
       alert1=1
+          scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">LH and FSH have begun production.<br>GnRH exerts positive feedback effects on them. <br> <br> </span>`,
+);
     }
   }
   if (estlvl>8*10**5 && alert3==0) {
      document.getElementById('alertbox1').innerHTML="Androgens are converted to estrogen by granulosa cells.<br>Estrogen stimulates its own production, but has negative feedback effects on GnRH, LH and FSH.";
      alertboxappear()
     alert3=1
+      scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Androgens are converted to estrogen by granulosa cells.<br>Estrogen stimulates its own production, but has negative feedback effects on GnRH, LH and FSH. <br> <br> </span>`,
+);
   }
    if (estlvl>1.5*10**6 && alert4==0) {
      document.getElementById('alertbox1').innerHTML="Inhibin promotes androgen and estrogen production, but has a negative feedback effect on FSH.";
      alertboxappear()
     alert4=1
+      scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Inhibin promotes androgen and estrogen production, but has a negative feedback effect on FSH. <br> <br> </span>`,
+);
   }
   if (lhlvl>10**10) {
   progunlock=true;
@@ -1095,6 +1135,11 @@ function resetgraph() {
     document.getElementById('alertbox1').innerHTML="Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary";
      alertboxappear()
       alert7=1
+       scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary <br> <br> </span>`,
+);
     }
   }
   if (proglvl>10**8 && lhlvl2<10**4) {
@@ -1104,6 +1149,11 @@ function resetgraph() {
     document.getElementById('alertbox1').innerHTML="Low LH levels are causing luteolysis.<br>The corpus luteum is degenerating, reducing progesterone, androgen and estrogen production.";
      alertboxappear()
       alert9=1
+        scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Low LH levels are causing luteolysis.<br>The corpus luteum is degenerating, reducing progesterone, androgen and estrogen production. <br> <br> </span>`,
+);
     }
   }
   }
