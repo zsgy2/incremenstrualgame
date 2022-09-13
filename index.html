@@ -1049,7 +1049,7 @@ function resetgraph() {
   fshunlock=true;
     document.getElementById("downfirst").style.visibility= "visible";
     if (alert1==0) {
-     document.getElementById('alertbox').innerHTML="LH and FSH have begun production. <br>GnRH exerts positive feedback effects on them.";
+     document.getElementById('alertbox').firstChild.nodeValue="LH and FSH have begun production. <br>GnRH exerts positive feedback effects on them.";
      alertboxappear()
       alert1=1
     }
