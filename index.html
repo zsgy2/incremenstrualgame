@@ -368,6 +368,7 @@
       <h2>
         Message log
       </h2>
+       <button id="exitlog" onclick="exitlog()">x</button>
       <div id="scrollingbox" style="height:100%;width:700px;border:1px solid;overflow:auto;">
 Testing
 </div>  
@@ -1256,6 +1257,10 @@ function flushcss() {
        }
      }
      
+     function exitlog() {
+       document.getElementById("messagelog").style.visibility= "hidden";
+     }
+     
      
    </script>
    <style>
@@ -1283,6 +1288,21 @@ function flushcss() {
      padding-left: 0px;
      cursor: pointer;
 }
+     
+     #exitlog {
+     border-radius: 0px;
+     border: none;
+     background: transparent;
+     font-size: 1em;
+     color: black;
+     position: absolute;
+     right: 0;
+     top: 0;
+     padding-top: 0px;
+     padding-right: 0px;
+     cursor: pointer;
+}
+     
      
      
 button {
