@@ -410,6 +410,8 @@ var autobuy=false
 var c3=false
 var c4=0
 var c5=0
+var alert1=0
+var alert3=0
 
 //initial slider condition
 document.getElementById("slidecontainer").style.visibility= "hidden";
@@ -675,6 +677,8 @@ document.getElementById("rightdown").style.visibility= "visible";
      document.getElementById("inhibinfsh").style.visibility= "visible";
   document.getElementById("up3cost").innerHTML = "Bought!";
    document.getElementById("butup3").disabled = true
+    document.getElementById('alertbox').innerHTML="Thecal cells in the antral follicle produce androgens, while granulosa cells produce estrogen and inhibin.";
+     alertboxappear()
   }
   
   function buyup4() {
@@ -1028,8 +1032,16 @@ function resetgraph() {
   lhunlock=true;
   fshunlock=true;
     document.getElementById("downfirst").style.visibility= "visible";
+    if (alert1==0) {
      document.getElementById('alertbox').innerHTML="LH and FSH have begun production. <br>GnRH exerts positive feedback effects on them.";
      alertboxappear()
+      alert1=1
+    }
+  }
+  if (estlvl>8*10**5 && alert3==0)
+     document.getElementById('alertbox').innerHTML="Androgens are converted to estrogen by granulosa cells. <br>Estrogen stimulates its own production, but exerts negative feedback effects on GnRH, LH and FSH.";
+     alertboxappear()
+    alert3=1
   }
   if (lhlvl>10**10) {
   progunlock=true;
