@@ -358,7 +358,7 @@
     </div>
  
      <div id="alertbox" style="position:fixed;bottom:0;right:0;">
-    Welcome to the incremenstrual game! <br> Your goal is to buy all the upgrades to complete the menstrual cycle.
+    <span id="alertbox1">Welcome to the incremenstrual game!<br>Your goal is to buy all the upgrades to complete the menstrual cycle.</span>
     <button id="exitpopupbut" onclick="exitpopup()">x</button>
     </div>
      
@@ -675,7 +675,7 @@ document.getElementById("rightdown").style.visibility= "visible";
   document.getElementById("up3cost").innerHTML = "Bought!";
    document.getElementById("butup3").disabled = true
     //alert2
-    document.getElementById('alertbox').firstChild.nodeValue="Thecal cells in the antral follicle produce androgens, while granulosa cells produce estrogen and inhibin.";
+    document.getElementById('alertbox1').innerHTML="Thecal cells in the antral follicle produce androgens, while granulosa cells produce estrogen and inhibin.";
      alertboxappear()
   }
   
@@ -687,7 +687,7 @@ document.getElementById("rightdown").style.visibility= "visible";
   document.getElementById("up4cost").innerHTML = "Bought!";
    document.getElementById("butup4").disabled = true
     //alert5
-     document.getElementById('alertbox').firstChild.nodeValue="Go wild with the slider, but decreasing androgen production may also limit your estrogen production.";
+     document.getElementById('alertbox1').innerHTML="Go wild with the slider, but decreasing androgen production may also limit your estrogen production.";
      alertboxappear()
   }
   
@@ -730,7 +730,7 @@ document.getElementById("rightdown").style.visibility= "visible";
    document.getElementById("up6cost").innerHTML = "Bought!";
    document.getElementById("butup6").disabled = true
      //alert6
-      document.getElementById('alertbox').firstChild.nodeValue="The hypothalamus-pituitary-gonadal positive feedback cycle is what causes the LH surge. <br>A surge in FSH is prevented by inhibin.";
+      document.getElementById('alertbox1').innerHTML="The hypothalamus-pituitary-gonadal positive feedback cycle is what causes the LH surge.<br>A surge in FSH is prevented by inhibin.";
      alertboxappear()
   }
   
@@ -746,7 +746,7 @@ document.getElementById("rightdown").style.visibility= "visible";
   document.getElementById("up7cost").innerHTML = "Bought!";
    document.getElementById("butup7").disabled = true
     //alert8
-     document.getElementById('alertbox').firstChild.nodeValue="During ovulation, the egg is released from the follicle. <br>The follicle then becomes the corpus luteum.<br>Thecal cells become small luteal cells, and granulosa cells become large luteal cells.";
+     document.getElementById('alertbox1').innerHTML="During ovulation, the egg is released from the follicle.<br>The follicle then becomes the corpus luteum.<br>Thecal cells become small luteal cells, and granulosa cells become large luteal cells.";
      alertboxappear()
   }
   
@@ -1003,7 +1003,7 @@ function resetgraph() {
    document.getElementById("upgrade9").style.borderColor="red"
    document.getElementById("realgraph").style.visibility= "visible";
     if (alert10==0) {
-     document.getElementById('alertbox').firstChild.nodeValue="The corpus luteum has degenerated. <br>Buying the last upgrade will restart the game, giving you 1 cycle point.<br>Scroll down to compare your hormone graph with what it's supposed to look like.";
+     document.getElementById('alertbox1').innerHTML="The corpus luteum has degenerated.<br>Buying the last upgrade will restart the game, giving you 1 cycle point.<br>Scroll down to compare your hormone graph with what it's supposed to look like.";
      alertboxappear()
       alert10=1
     }
@@ -1051,18 +1051,18 @@ function resetgraph() {
   fshunlock=true;
     document.getElementById("downfirst").style.visibility= "visible";
     if (alert1==0) {
-     document.getElementById('alertbox').firstChild.nodeValue="LH and FSH have begun production. <br>GnRH exerts positive feedback effects on them.";
+     document.getElementById('alertbox1').innerHTML="LH and FSH have begun production.<br>GnRH exerts positive feedback effects on them.";
      alertboxappear()
       alert1=1
     }
   }
   if (estlvl>8*10**5 && alert3==0) {
-     document.getElementById('alertbox').firstChild.nodeValue="Androgens are converted to estrogen by granulosa cells. <br>Estrogen stimulates its own production, but has negative feedback effects on GnRH, LH and FSH.";
+     document.getElementById('alertbox1').innerHTML="Androgens are converted to estrogen by granulosa cells.<br>Estrogen stimulates its own production, but has negative feedback effects on GnRH, LH and FSH.";
      alertboxappear()
     alert3=1
   }
    if (estlvl>1.5*10**6 && alert4==0) {
-     document.getElementById('alertbox').firstChild.nodeValue="Inhibin promotes androgen and estrogen production, but has a negative feedback effect on FSH.";
+     document.getElementById('alertbox1').innerHTML="Inhibin promotes androgen and estrogen production, but has a negative feedback effect on FSH.";
      alertboxappear()
     alert4=1
   }
@@ -1071,7 +1071,7 @@ function resetgraph() {
     document.getElementById("progarrow").style.visibility="visible";
     //alert7
     if (alert7==0) {
-    document.getElementById('alertbox').firstChild.nodeValue="Progesterone is produced by large luteal cells. <br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary";
+    document.getElementById('alertbox1').innerHTML="Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary";
      alertboxappear()
       alert7=1
     }
@@ -1080,7 +1080,7 @@ function resetgraph() {
   lhlimit=true
   //alert9
      if (alert9==0) {
-    document.getElementById('alertbox').firstChild.nodeValue="Low LH levels are causing luteolysis.<br>The corpus luteum is degenerating, reducing progesterone, androgen and estrogen production";
+    document.getElementById('alertbox1').innerHTML="Low LH levels are causing luteolysis.<br>The corpus luteum is degenerating, reducing progesterone, androgen and estrogen production.";
      alertboxappear()
       alert9=1
     }
