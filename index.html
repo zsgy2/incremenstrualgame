@@ -896,6 +896,13 @@ document.getElementById("rightdown").style.visibility= "hidden";
   document.getElementById("glomerulosatext").innerHTML="Granulosa cells";
     document.getElementById("thecaltext").innerHTML="Thecal cells";
   document.getElementById("realgraph").style.visibility= "hidden";
+   while (document.getElementById("scrollingbox").hasChildNodes()) {
+  document.getElementById("scrollingbox").removeChild(document.getElementById("scrollingbox").firstChild);
+}
+   document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Welcome to the incremenstrual game!<br>Your goal is to buy all the upgrades to complete the menstrual cycle.</span>`,
+);
 }
   
 function resetgraph() {
@@ -1132,13 +1139,13 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
     document.getElementById("progarrow").style.visibility="visible";
     //alert7
     if (alert7==0) {
-    document.getElementById('alertbox1').innerHTML="Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary";
+    document.getElementById('alertbox1').innerHTML="Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Inhibiting estrogen's positive feedback effect on the anterior pituitary";
      alertboxappear()
       alert7=1
        scrollingboxnodes[0].style.color = 'black';
 document.getElementById("scrollingbox").insertAdjacentHTML(
   'afterbegin',
-  `<span class="addon" style="color:red">Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Decreasing estrogen's positive feedback effect on the anterior pituitary <br> <br> </span>`,
+  `<span class="addon" style="color:red">Progesterone is produced by large luteal cells.<br>It decreases production of LH and FSH by:<br>1. Direct negative feedback<br>2. Inhibiting estrogen's positive feedback effect on the anterior pituitary <br> <br> </span>`,
 );
     }
   }
