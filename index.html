@@ -360,15 +360,15 @@
     <button id="exitpopupbut" onclick="exitpopup()">x</button>
     </div>
      
-     <button style="position:relative;margin-top:100%;" onclick="openlog()">
+     <button style="position:absolute;bottom:0;" onclick="openlog()">
     Message log
     </button>
     
-    <div style="position:fixed;top:0;left:0;background-color:grey;opacity:90%;">
+    <div id="messagelog" style="position:fixed;top:0;left:0;background-color:grey;opacity:90%;height:100%">
       <h2>
         Message log
       </h2>
-      <div id="container" style="height:100%;width:700px;border:1px solid;overflow:auto;">
+      <div id="scrollingbox" style="height:100%;width:700px;border:1px solid;overflow:auto;">
 Testing
 </div>  
     </div>
@@ -442,6 +442,7 @@ document.getElementById("rightdown").style.visibility= "hidden";
      document.getElementById("progarrow").style.visibility= "hidden";
    document.getElementById("realgraph").style.visibility= "hidden";
      setTimeout(alertboxfade,7000)
+     document.getElementById("messagelog").style.visibility= "hidden"
      
 
   setInterval(addtime,10);
@@ -1246,7 +1247,16 @@ function flushcss() {
   document.getElementById('alertbox').offsetHeight= document.getElementById('alertbox').offsetHeight;
 }
   
-
+//message log
+     function openlog() {
+       if (document.getElementById("messagelog").style.visibility== "hidden") {
+        document.getElementById("messagelog").style.visibility= "visible";
+       } else {
+          document.getElementById("messagelog").style.visibility= "hidden";
+       }
+     }
+     
+     
    </script>
    <style>
      
