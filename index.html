@@ -239,7 +239,9 @@
     </div>
       
     
-    
+     <h2>
+ Hormone graph
+ </h2>
       <canvas id="chart" style="width:100%;max-width:500px;max-height:300px;"></canvas>
      <div id="slidecontainer" style="">
        <p id="sliderno" style="font-style:italic">
@@ -1026,6 +1028,8 @@ function resetgraph() {
   lhunlock=true;
   fshunlock=true;
     document.getElementById("downfirst").style.visibility= "visible";
+     document.getElementById('alertbox').innerHTML="LH and FSH have begun production. <br>GnRH exerts positive feedback effects on them.";
+     alertboxappear()
   }
   if (lhlvl>10**10) {
   progunlock=true;
