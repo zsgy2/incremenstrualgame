@@ -238,11 +238,13 @@
       </div>
     </div>
       
-    
+    <div style="">
      <h2>
  Hormone graph
  </h2>
       <canvas id="chart" style="width:100%;max-width:500px;max-height:300px;"></canvas>
+    </div>
+    
      <div id="slidecontainer" style="">
        <p id="sliderno" style="font-style:italic">
          70% thecal cells, 30% granulosa cells
@@ -1218,7 +1220,7 @@ function resetgraph() {
   flushcss()
   document.getElementById('alertbox').style.transition = "";
    document.getElementById('exitpopupbut').style.cursor="pointer"
-   setTimeout(alertboxfade,7000)
+   setTimeout(alertboxfade,10000)
 }
 
      //pressing x on popup
