@@ -364,13 +364,12 @@
     Message log
     </button>
     
-    <div id="messagelog" style="position:fixed;top:0;left:0;background-color:#D3D3D3;opacity:90%;height:100vh">
+    <div id="messagelog" style="position:fixed;top:0;left:0;background-color:#D3D3D3;opacity:90%;height:100vh;visibility:hidden">
       <h2>
         Message log
       </h2>
        <button id="exitlog" onclick="exitlog()">x</button>
       <div id="scrollingbox" style="height:100%;width:700px;border:1px solid;overflow:auto;">
-Testing
 </div>  
     </div>
     
@@ -428,6 +427,7 @@ var alert4=0
 var alert7=0
 var alert9=0
 var alert10=0
+var scrollingboxnodes = document.getElementById('scrollingbox').getElementsByClassName('addon');
 
 //initial slider condition
 document.getElementById("slidecontainer").style.visibility= "hidden";
@@ -443,7 +443,10 @@ document.getElementById("rightdown").style.visibility= "hidden";
      document.getElementById("progarrow").style.visibility= "hidden";
    document.getElementById("realgraph").style.visibility= "hidden";
      setTimeout(alertboxfade,7000)
-     document.getElementById("messagelog").style.visibility= "hidden"
+     document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Welcome to the incremenstrual game!<br>Your goal is to buy all the upgrades to complete the menstrual cycle.</span>`,
+);
      
 
   setInterval(addtime,10);
@@ -690,6 +693,11 @@ document.getElementById("rightdown").style.visibility= "visible";
     //alert2
     document.getElementById('alertbox1').innerHTML="Thecal cells in the antral follicle produce androgens, while granulosa cells produce estrogen and inhibin.";
      alertboxappear()
+    scrollingboxnodes[0].style.color = 'black';
+document.getElementById("scrollingbox").insertAdjacentHTML(
+  'afterbegin',
+  `<span class="addon" style="color:red">Thecal cells in the antral follicle produce androgens, while granulosa cells produce estrogen and inhibin. <br> <br> </span>`,
+);
   }
   
   function buyup4() {
@@ -1293,7 +1301,7 @@ function flushcss() {
      border-radius: 0px;
      border: none;
      background: transparent;
-     font-size: 3em;
+     font-size: 2em;
      color: black;
      position: absolute;
      right: 0;
