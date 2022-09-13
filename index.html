@@ -5,7 +5,9 @@
 <title>Incremenstrual game: An educational incremental game</title>
 </head>
   <body>
-
+<button style="position:absolute;bottom:0;" onclick="openlog()">
+    Message log
+    </button>
   <div id="container" style="">
   <div id="hormones">
     
@@ -360,11 +362,9 @@
     <button id="exitpopupbut" onclick="exitpopup()">x</button>
     </div>
      
-     <button style="position:absolute;bottom:0;" onclick="openlog()">
-    Message log
-    </button>
+     
     
-    <div id="messagelog" style="position:fixed;top:0;left:0;background-color:grey;opacity:90%;height:100%">
+    <div id="messagelog" style="position:fixed;top:0;left:0;background-color:grey;opacity:90%;height:100vh">
       <h2>
         Message log
       </h2>
