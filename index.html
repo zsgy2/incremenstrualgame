@@ -1284,6 +1284,7 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
      //alertbox stuff
      
      //fade after time
+     let timeout;
       function alertboxfade() {
   document.getElementById('alertbox').style.opacity=0;
    document.getElementById('exitpopupbut').style.cursor="default";
@@ -1291,12 +1292,13 @@ document.getElementById("scrollingbox").insertAdjacentHTML(
 
 //appear
       function alertboxappear() {
+        clearTimeout(timeout);
   document.getElementById('alertbox').style.transition = "none";
   document.getElementById('alertbox').style.opacity=0.95;
   flushcss()
   document.getElementById('alertbox').style.transition = "";
    document.getElementById('exitpopupbut').style.cursor="pointer"
-   setTimeout(alertboxfade,10000)
+   timeout =setTimeout(alertboxfade,10000)
 }
 
      //pressing x on popup
